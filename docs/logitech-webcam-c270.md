@@ -11,4 +11,4 @@
 	    - 별도의 작업 필요하지 않음
      2. 라즈베리파이 전원을 On 시킨 이후에 WebCam을 연결한 경우에는 아래 스크립트를 먼저 실행해 주어야 한다.
 	    <pre><code>$ sudo rmmod uvcvideo
-		sudo modprobe uvcvideo</code></pre>
+            $ sudo modprobe uvcvideo</code></pre>
