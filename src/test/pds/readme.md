@@ -5,4 +5,4 @@
        * https://m.blog.naver.com/PostView.nhn?blogId=boilmint7&logNo=220927816896&proxyReferer=https%3A%2F%2Fwww.google.com%2F
   2. 사전 작업
      <pre><code>$ sudo raspi-config
-     Menu &gt; 8. Advanced Options &gt; 6. SPI ... &gt; Yes</code></pre>
+     Menu &gt; 5 Interfacing Options &gt; P4 SPI &gt; Yes &gt; Ok &gt; Finish</code></pre>
