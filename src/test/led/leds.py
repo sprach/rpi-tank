@@ -35,6 +35,7 @@ try:
         led_green_on()
         sleep(1)
         led_blue_on()
+        sleep(1)
 
 except KeyboardInterrupt:
         all_led_off()
