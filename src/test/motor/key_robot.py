@@ -2,6 +2,7 @@
 import curses
 from gpiozero import PWMOutputDevice
 from gpiozero import DigitalOutputDevice
+from gpiozero import LED
 from time import sleep
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
@@ -14,6 +15,11 @@ PWM_DRIVE_RIGHT = 13	# ENB - H-Bridge enable pin
 FORWARD_RIGHT_PIN = 5	# IN1 - Forward Drive
 REVERSE_RIGHT_PIN = 6	# IN2 - Reverse Drive
 
+# LEDs
+LED_R = LED(24)
+LED_G = LED(25)
+LED_B = LED(4)
+
 # Initialise objects for H-Bridge GPIO PWM pins
 # Set initial duty cycle to 0 and frequency to 1000
 driveLeft = PWMOutputDevice(PWM_DRIVE_LEFT, True, 0, 1000)
@@ -24,7 +30,12 @@ forwardLeft = DigitalOutputDevice(FORWARD_LEFT_PIN)
 reverseLeft = DigitalOutputDevice(REVERSE_LEFT_PIN)
 forwardRight = DigitalOutputDevice(FORWARD_RIGHT_PIN)
 reverseRight = DigitalOutputDevice(REVERSE_RIGHT_PIN)
- 
+
+def all_led_off():
+    LED_R.off()
+    LED_G.off()
+    LED_B.off()
+    
 def allStop():
 	forwardLeft.value = False
 	reverseLeft.value = False
@@ -97,6 +108,18 @@ def reverseTurnRight():
 	driveLeft.value = 0.8
 	driveRight.value = 0.2
 
+def led_green_on():
+	LED_G.on()
+	LED_B.off()
+
+def led_blue_on():
+	LED_G.off()
+	LED_B.on()
+
+def led_green_blue_off():
+	LED_G.off()
+	LED_B.off()
+
 # Get the curses window, turn off echoing of keyboard to screen, turn on
 # instant (no waiting) key response, and use special values for cursor keys
 screen = curses.initscr()
@@ -106,26 +129,39 @@ screen.keypad(True)
 
 screen.addstr(0, 0, 'Press a cursor key, or press "q" key to stop.\n')
 
+# 모든 LED 끄지
+all_led_off()
+
 # 정지
 allStop()
 
+LED_R.on()
+
 try:
-        while True:   
-            char = screen.getch()
-            if char == ord('q'):
-                break
-            elif char == curses.KEY_UP:
-                forwardDrive()
-            elif char == curses.KEY_DOWN:
-                reverseDrive()
-            elif char == curses.KEY_RIGHT:
-                SpinRight()
-            elif char == curses.KEY_LEFT:
-                spinLeft()
-            elif char == 10:
-                allStop()
-             
+	while True:
+		char = screen.getch()
+		if char == ord('q'):
+			break
+		elif char == curses.KEY_UP:
+			led_green_on()
+			forwardDrive()
+		elif char == curses.KEY_DOWN:
+			led_blue_on()
+			reverseDrive()
+		elif char == curses.KEY_RIGHT:
+			led_green_blue_off()
+			SpinRight()
+		elif char == curses.KEY_LEFT:
+			led_green_blue_off()
+			spinLeft()
+		elif char == 10:
+			led_green_blue_off()
+			allStop()
+			
 finally:
-    #Close down curses properly, inc turn echo back on!
-    curses.nocbreak(); screen.keypad(0); curses.echo()
-    curses.endwin()
+	#Close down curses properly, inc turn echo back on!
+	curses.nocbreak()
+	screen.keypad(0)
+	curses.echo()
+	curses.endwin()
+	all_led_off()
