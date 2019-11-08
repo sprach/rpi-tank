@@ -5,3 +5,4 @@
      * 아래 링크를 보면 ECHO에 330오옴(또는 1k오옴)을, GND쪽에는 470오옴(또는 2k오옴)의 저항을 연결해 놓았음
        * https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/
        * https://thepihut.com/blogs/raspberry-pi-tutorials/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
+  3. Analog는 MCP3008ISL 만으로 별도 테스트가 필요함
