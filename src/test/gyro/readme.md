@@ -4,7 +4,7 @@
   1. i2c 활성화
      <pre><code>$ sudo raspi-config
      5 Interfacing Options &gt; P5 I2C &gt; Yes &gt; Ok &gt; Finish</code></pre>
-     ^ 필요시 재부팅
+     > 필요시 재부팅
 
   2. 다운로드와 설치
      1. i2c
@@ -20,7 +20,7 @@
         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
         70: -- -- -- -- -- -- -- --
         </code></pre>
-        ^ <b><i><u>68</u></i></b>은 센서의 기본 주소이다.
+        > <b><i><u>68</u></i></b>은 센서의 기본 주소이다.
 
      2. cmake
         <pre><code>$ sudo apt-get install cmake
