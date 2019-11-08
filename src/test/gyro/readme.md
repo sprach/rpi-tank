@@ -3,7 +3,7 @@
 
   1. i2c 활성화
      <pre><code>$ sudo raspi-config
-     5 Interfacing Options &gt; P5 I2C &gt; Yes &gt; Ok &gt; Finish</code></pre>
+     <b><i><u>5 Interfacing Options</u></i></b> &gt; <b><i><u>P5 I2C</u></i></b> &gt; <b><i><u>Yes</u></i></b> &gt; <b><i><u>Ok</u></i></b> &gt; <b><i><u>Finish</u></i></b></code></pre>
      > 필요시 재부팅
 
   2. 다운로드와 설치
