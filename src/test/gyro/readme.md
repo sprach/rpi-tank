@@ -1,6 +1,8 @@
 # 자이로 및 가속도 센서
   * https://kingtidesailing.blogspot.com/2016/02/how-to-setup-mpu-9250-on-raspberry-pi_25.html
 
+## 센서 설정
+
   1. i2c 활성화
      <pre><code>$ sudo raspi-config
      <b><i><u>5 Interfacing Options</u></i></b> &gt; <b><i><u>P5 I2C</u></i></b> &gt; <b><i><u>Yes</u></i></b> &gt; <b><i><u>Ok</u></i></b> &gt; <b><i><u>Finish</u></i></b></code></pre>
@@ -79,3 +81,4 @@
 
       2. 'RTIMULib.ini' 파일을 작업 디렉토리에 복사해야 한다.
 
+## 테스트
