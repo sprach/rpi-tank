@@ -65,3 +65,17 @@
         
         4. 재부팅
            <pre><code>$ sudo reboot</code></pre>
+
+  3. Calibrating the MPU-9250
+     1. RTIMULibCal 실행
+        <pre><code>$ cd ~/kts/RTEllipsoidFit
+        $ RTIMULibCal</code></pre>
+        1. 'm' 키를 누른후 값이 안정되면 's' 키를 누른다.
+        2. 'e' 키를 눌러서 타원체를 교정한다. 많은 숫자가 몇 분에 걸쳐서 표시되다가 자동으로 중단된다.
+        3. 'a' 키를 눌러서 가속도계를 교정한다.
+           1. (*중요*)... 내용 확인 필요함!!!
+           2. x 축 센서 가속도계 보정, 'e'를 눌러 활성화, 'd'를 눌러 비활성화
+           3. 'x'를 눌러서 종료
+
+      2. 'RTIMULib.ini' 파일을 작업 디렉토리에 복사해야 한다.
+
