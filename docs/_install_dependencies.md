@@ -19,9 +19,11 @@
      <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
    
   4. Setup Virtual Env
-     <pre><code>$ python3 -m virtualenv -p python3 env --system-site-packages
-     $ echo "source ./env/bin/activate" &gt;&gt ~/.bashrc
-     $ source ~/.bashrc</code></pre>
+     <pre><code>$ python3 -m virtualenv -p python3 env --system-site-packages</code></pre>
+
+     * .bashrc 파일의 맨 끝에 'source env/bin/activate'가 없을 때 아래와 같이 적용
+       <pre><code>$ echo "source ./env/bin/activate" &gt;&gt ~/.bashrc
+       $ source ~/.bashrc</code></pre>
 
   ## GPIO 라이브러리 설치
   <pre><code>sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
