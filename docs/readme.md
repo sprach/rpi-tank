@@ -23,7 +23,7 @@
     5. 자이로 및 가속도 센서
     6. 적외선 거리측정
 
-  * [4_install_opencv](3_install_opencv.md)
+  * [4_install_opencv](4_install_opencv.md)
   
   * [<b><i>check</i></b>](check.md)
     * 2차 버전 제작시 점검하고 고려해야 할 사항 기록
