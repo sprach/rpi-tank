@@ -9,11 +9,14 @@
 
 # 개발 및 종속 파일 설치
   ## 개발 종속 파일 설치
+  1. 개발 관련 파일
+     <pre><code>$ sudo apt-get install -y cmake git</code></pre>
+	 
   1. Python files
      <pre><code>$ sudo apt-get install -y python3-dev python3-pillow python3-virtualenv python3-numpy python3-picamera python3-pandas python3-rpi.gpio</code></pre>
   
   2. Dependency files
-     <pre><code>$ sudo apt-get install -y git build-essential i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev gfortran libatlas-base-dev libopenblas-dev libhdf5-dev</code></pre>
+     <pre><code>$ sudo apt-get install -y build-essential i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev gfortran libatlas-base-dev libopenblas-dev libhdf5-dev</code></pre>
    
   3. OpenCV files
      <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
@@ -105,25 +108,15 @@
         70: -- -- -- -- -- -- -- --
         </code></pre>
         > <b><i><u>68</u></i></b>은 센서의 기본 주소이다.
-
-     2. cmake
-        <pre><code>$ sudo apt-get install cmake
-        ...
-        계속 하시겠습니까? [Y/n] &lt;Enter&gt;
-        ...
-        $ </code></pre>
     
-     3. 개발용 python
-        <pre><code>$ sudo apt-get install python-dev</code></pre>
-    
-     4. Ellipsoid Fit Calibration
+     3. Ellipsoid Fit Calibration
         <pre><code>$ sudo apt-get install octave
         ...
         계속 하시겠습니까? [Y/n] &lt;Enter&gt;
         ...
         $ </code></pre>
     
-     5. RTIMULib library
+     4. RTIMULib library
         <pre><code>$ cd ~
         $ mkdir kts
         $ cd kts
@@ -179,8 +172,7 @@
         <pre><code>$ sudo vi /etc/modules
         spi-bcm2807</code></pre>
      3. spidev 라이브러리 설치
-        <pre><code>$ sudo apt-get install git python3-dev
-        $ git clone git://github.com/doceme/py-spidev
+        <pre><code>$ git clone git://github.com/doceme/py-spidev
         $ cd py-spidev
         $ sudo python3 setup.py install</code></pre>
 
