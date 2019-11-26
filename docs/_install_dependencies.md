@@ -76,7 +76,9 @@
      <b><i><u>array([6., 8.], dtype=float32)
      >>> </u></i></b>exit()
      $</code></pre>
-
+  * Unistall tensorflow
+    <pre><code>$ sudo pip3 uninstall -y protobuf
+    $ sudo pip3 uninstall -y tensorflow</code></pre>
 
   ## GPIO 라이브러리 설치
   <pre><code>$ sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
