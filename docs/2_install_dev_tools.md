@@ -91,3 +91,45 @@
   * Unistall tensorflow
     <pre><code>$ sudo pip3 uninstall -y protobuf
     $ sudo pip3 uninstall -y tensorflow</code></pre>
+
+  ## Samba
+  * 라즈베리파이에서의 작업
+    1. 라즈비안 업데이트
+       <pre><code>$ sudo apt-get update</code></pre>
+    
+    2. Samba 설치
+       <pre><code>$ sudo apt-get install -y samba samba-common-bin</code></pre>
+    
+    3. Samba 암호 설정
+       <pre><code>$ sudo smbpasswd -a pi
+       <i>New SMB password: </i><b>raspberry</b>
+       <i>Retype new SMB password: </i><b>raspberry</b></code></pre>
+    
+    4. Samba 환경 파일 수정
+       <pre><code>$ sudo vi /etc/samba/smb.conf
+       <b><i># 맨 끝으로 이동하여 추가
+       [pi]
+       comment=qtsys samba server
+       path=/home/pi
+       valid user=pi
+       writable=no
+       read only=no
+       browseable=yes</i></b>
+       &lt;ESC&gt;:wq&lt;Enter&gt;
+       $</code></pre>
+    
+    5. Samba 재시작
+       <pre><code>$ sudo /etc/init.d/smbd restart</code></pre>
+
+    6. 라즈베리파이의 IP 주소 확인
+       <pre><code>$ ifconfig</code></pre>
+
+  * Windows에서의 작업
+    1. &lt;Windows icon key&gt; + &lt;R&gt;
+       <pre><code>$ \\&lt;Raspberry Pi's IP Address&gt;\pi&lt;Enter&gt</code></pre>
+
+    2. 자격 증명후 '확인' 버튼 클릭
+       <pre><code>사용자 이름: <b><i>pi</i></b>
+       암호: <b><i>raspberry</i></b>
+
+    
