@@ -41,9 +41,36 @@
   ## TensorFlow
   1. Install tensorflow
      <pre><code>$ sudo pip3 install tensorflow</code></pre>
-  2. Test
+  2. Test 1
     <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
+  3. Test 2
+     <pre><code>$ python3
+     <b><i><u>Python 3.7.3 (default, Apr  3 2019, 05:39:12) 
+     [GCC 8.2.0] on linux
+     Type "help", "copyright", "credits" or "license" for more information.
+     >>> </u></i></b>import tensorflow as tf
+     <b><i><u>WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+
+     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AttrValue is deprecated. Please use tf.compat.v1.AttrValue instead.
+
+     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.COMPILER_VERSION is deprecated. Please use tf.version.COMPILER_VERSION instead.
+
+     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.CXX11_ABI_FLAG is deprecated. Please use tf.sysconfig.CXX11_ABI_FLAG instead.
+
+     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.ConditionalAccumulator is deprecated. Please use tf.compat.v1.ConditionalAccumulator instead.
+
+     >>> </u></i></b>a = tf.constant([1.0, 2.0], name="a")
+     <b><i><u>>>> </u></i></b>b = tf.constant([5.0, 6.0], name="b")
+     <b><i><u>>>> </u></i></b>result = a + b
+     <b><i><u>>>> </u></i></b>result
+     <b><i><u><tf.Tensor 'add:0' shape=(2,) dtype=float32>
+     >>> </u></i></b>sess = tf.Session()
+     <b><i><u>>>> </u></i></b>sess.run(result)
+     <b><i><u>array([6., 8.], dtype=float32)
+     >>> </u></i></b>exit()
+     $
+
 
   ## GPIO 라이브러리 설치
   <pre><code>$ sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
