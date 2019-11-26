@@ -64,12 +64,12 @@
      <b><i><u>>>> </u></i></b>b = tf.constant([5.0, 6.0], name="b")
      <b><i><u>>>> </u></i></b>result = a + b
      <b><i><u>>>> </u></i></b>result
-     <b><i><u><tf.Tensor 'add:0' shape=(2,) dtype=float32>
+     <b><i><u>&gt;tf.Tensor 'add:0' shape=(2,) dtype=float32&lt;
      >>> </u></i></b>sess = tf.Session()
      <b><i><u>>>> </u></i></b>sess.run(result)
      <b><i><u>array([6., 8.], dtype=float32)
      >>> </u></i></b>exit()
-     $
+     $</code></pre>
 
 
   ## GPIO 라이브러리 설치
