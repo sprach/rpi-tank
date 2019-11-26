@@ -1,4 +1,5 @@
 # 문서 설명
+  * 파일 <b><i><u>_install_dependencies.md</u></i></b>는 전체 소스에 필요한 설치 파일들을 정리해 놓은 파일임
   1. <b>check</b>
      * 2차 버전 제작시 점검하고 고려해야 할 사항 기록
   2. bluedot
