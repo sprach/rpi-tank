@@ -9,6 +9,7 @@
     1. 개발 관련 파일 설치
     2. VirtualEnv
     3. TensorFlow
+    4. Samba
 
   * [3_install_device_drivers](3_install_device_drivers.md)
     1. GPIO 라이브러리 설치
