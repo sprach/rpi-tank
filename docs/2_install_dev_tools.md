@@ -37,13 +37,13 @@
         <b><i><u>Desktop    Download   ...   venv</u></i></b></code></pre>
      2. Activate the virtual environment
         <pre><code>$ source ./venv/bin/activate
-        (venv) $</code></pre>
+        (venv) $ ■</code></pre>
      3. Install packages within a virtual environment (Start by upgradeing pip.)
         <pre><code>(venv) $ pip3 install --upgrade pip
         (venv) $ pip3 list  # show packages installed within the virtual environment</code></pre>
      * To exit virtualenv later
        <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow
-       $</code></pre>
+       $ ■</code></pre>
 
   ## TensorFlow
   > Tensorflow 설치는 VirtualEnv를 기본으로 하되, 실습에서는 시스템 설치와 가상 설치는 별도로 구분하지 않는다.
@@ -95,7 +95,7 @@
        <b><i><u>>>> </u></i></b>sess.run(result)
        <b><i><u>array([6., 8.], dtype=float32)
        >>> </u></i></b>exit()
-       $</code></pre>
+       $ ■</code></pre>
   * Unistall tensorflow
     <pre><code>$ sudo pip3 uninstall -y protobuf
     $ sudo pip3 uninstall -y tensorflow</code></pre>
@@ -104,7 +104,7 @@
   * 라즈베리파이에서의 작업
     * 가상환경인 경우 빠져 나오기
       <pre><code>(venv) $ deactivate
-      $</code></pre>
+      $ ■</code></pre>
 
     1. 라즈비안 업데이트
        <pre><code>$ sudo apt-get update</code></pre>
