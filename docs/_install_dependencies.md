@@ -167,10 +167,10 @@
   2. 사전 작업
      1. SPI 활성화
         <pre><code>$ sudo raspi-config
-        Menu &gt; 5 Interfacing Options &gt; P4 SPI &gt; Yes &gt; Ok &gt; Finish</code></pre>
+        <b><i><u>Menu &gt; 5 Interfacing Options &gt; P4 SPI &gt; Yes &gt; Ok &gt; Finish</u></i></b></code></pre>
      2. /etc/modules 의 마지막 라인에 'spi-bcm2807' 추가
         <pre><code>$ sudo vi /etc/modules
-        spi-bcm2807</code></pre>
+        <b><i><u>spi-bcm2807</u></i></b></code></pre>
      3. spidev 라이브러리 설치
         <pre><code>$ git clone git://github.com/doceme/py-spidev
         $ cd py-spidev
