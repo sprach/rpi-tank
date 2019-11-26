@@ -20,23 +20,31 @@
    
   3. OpenCV files
      <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
-   
-  4. Setup Virtual Env
-     <pre><code>$ sudo python3 -m virtualenv -p python3 env --system-site-packages
-     $ source .bashrc</code></pre>
 
-     * .bashrc 파일의 맨 끝에 'source env/bin/activate'가 없을 때 아래와 같이 적용
-       <pre><code>$ echo "source ./env/bin/activate" &gt;&gt ~/.bashrc
-       $ source ~/.bashrc</code></pre>
-
-     * check: sudo 를 넣지 않고 설치한 뒤에 다시 sudo 로 명령 실행할 경우 발생한 오류가 있음
-       <pre><code>Already using interpreter /usr/bin/python3
-       Using base prefix '/usr'
-       /usr/lib/python3/dist-packages/virtualenv.py:1090: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-         import imp
-       New python executable in /home/pi/env/bin/python3
-       Not overwriting existing python script /home/pi/env/bin/python (you must use /home/pi/env/bin/python3)
-       Installing setuptools, pkg_resources, pip, wheel...done.</code></pre>
+  ## VirtualEnv
+  * Requires Pytho &gt; 3.4 and pip &gt;= 19.0
+  1. Check VirtualEnv
+     <pre><code>$ python3 --version
+     $ pip3 --version
+     $ virtualenv --version</code></pre>
+  2. Install Python, the pip package manager, and VirtualEnv
+     <pre><code>$ sudo apt update
+     $ sudo apt install python3-dev python3-pip
+     $ sudo apt install libatlas-base-dev          # required for numpy
+     $ sudo pip3 install -U virtualenv             # system-wide install</code></pre>
+  3. Create a virtual environment
+     1. Create a new virtual environment
+        <pre><code>$ virtualenv --system-site-packages -p python3 ./venv
+	$ ls
+	<b><i><u>Desktop    Download   ... venv</u></i></b></code></pre>
+     2. Activate the virtual environment
+        <pre><code>$ source ./venv/bin/activate
+	(venv) $</code></pre>
+     3. Install packages within a virtual environment (Start by upgradeing pip.)
+        <pre><code>(venv) $ pip install --upgrade pip
+	(venv) $ pip list  # show packages installed within the virtual environment</code></pre>
+     * To exit virtualenv later
+       <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow</code></pre>
 
   ## TensorFlow
   1. Install tensorflow
