@@ -130,10 +130,10 @@
 
   * Windows에서의 작업
     1. &lt;Windows icon key&gt; + &lt;R&gt;
-       <pre><code>$ \\&lt;Raspberry Pi's IP Address&gt;\pi&lt;Enter&gt</code></pre>
+       <pre><code>\\&lt;Raspberry Pi's IP Address&gt;&lt;Enter&gt</code></pre>
 
     2. 자격 증명후 '확인' 버튼 클릭
        <pre><code>사용자 이름: <b><i>pi</i></b>
        암호: <b><i>raspberry</i></b>
 
-    
+    3. <b><i>pi</i></b>를 마우스로 더블클릭하여 라즈베리파이 폴더를 브라우징한다.
