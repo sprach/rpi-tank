@@ -42,7 +42,8 @@
         <pre><code>(venv) $ pip3 install --upgrade pip
         (venv) $ pip3 list  # show packages installed within the virtual environment</code></pre>
      * To exit virtualenv later
-       <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow</code></pre>
+       <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow
+       $</code></pre>
 
   ## TensorFlow
   > Tensorflow 설치는 VirtualEnv를 기본으로 하되, 실습에서는 시스템 설치와 가상 설치는 별도로 구분하지 않는다.
@@ -102,7 +103,8 @@
   ## Samba
   * 라즈베리파이에서의 작업
     * 가상환경인 경우 빠져 나오기
-      <pre><code>(venv) $ deactivate</code></pre>
+      <pre><code>(venv) $ deactivate
+      $</code></pre>
 
     1. 라즈비안 업데이트
        <pre><code>$ sudo apt-get update</code></pre>
