@@ -8,9 +8,21 @@
      <pre><code>sudo apt-get install fonts-unfonts-core fonts-nanum fonts-nanum-extra</code></pre>
 
 # 개발 및 종속 파일 설치
-  ## 개발용 Python 설치
-  <pre><code>sudo apt-get install python3-dev python3-pillow -y</code></pre>
+  ## 개발 종속 파일 설치
+  1. Python files
+  <pre><code>$ sudo apt-get install -y python3-dev python3-pillow python3-virtualenv python3-numpy python3-picamera python3-pandas python3-rpi.gpio</code></pre>
+  
+  2. Dependency files
+  <pre><code>$ sudo apt-get install -y git build-essntial i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev gfortran libatlas-base-dev libopenblas libhdf5-serial-dev</code></pre>
    
+  3. OpenCV files
+  <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
+   
+  4. Setup Virtual Env
+  <pre><code>$ python3 -m virtualenv -p python3 env --system-site-packages
+  $ echo "source ./env/bin/activate" &lt;&lt ~/.bashrc
+  $ source ~/.bashrc</code></pre>
+
   ## GPIO 라이브러리 설치
   <pre><code>sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
   
