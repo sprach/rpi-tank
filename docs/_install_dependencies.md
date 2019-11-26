@@ -3,6 +3,10 @@
     <pre><code>$ sudo apt-get update
     $ sudo apt-get upgrade</code></pre>
 
+# 라즈베리파이 한글 폰트 설치
+  1. 라즈베리파이에서 한글 보기용 폰트 설치
+     <pre><code>sudo apt-get install fonts-unfonts-core fonts-nanum fonts-nanum-extra</code></pre>
+
 # 라즈베리파이 원격접속 설정
   > Windows 원격데스크톱용
   1. 기존 VNC Server 제거
@@ -13,12 +17,10 @@
      <pre><code>$ sudo apt-get install xrdp</code></pre>
   4. Windows 원격데스크톱으로 라즈베리파이에 연결
 
-# 라즈베리파이 한글 폰트 설치
-  1. 라즈베리파이에서 한글 보기용 폰트 설치
-     <pre><code>sudo apt-get install fonts-unfonts-core fonts-nanum fonts-nanum-extra</code></pre>
+<hr>
 
 # 개발 및 종속 파일 설치
-  ## 개발 종속 파일 설치
+  ## 개발 관련 파일 설치
   1. 개발 관련 파일
      <pre><code>$ sudo apt-get install -y cmake git</code></pre>
 	 
@@ -121,6 +123,9 @@
   2. Non-raspbian
      <pre><code>$ sudo pip3 install gpiozero</code></pre>
 
+<hr>
+
+# 디바이스 드라이버 파일 설치
   ## BlueDot
   * 안드로이드폰에서 라즈베리파이를 조정하는 패드 역할
     * [BlotDot Site](https://bluedot.readthedocs.io/) : https://bluedot.readthedocs.io/
