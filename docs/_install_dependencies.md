@@ -51,20 +51,15 @@
      Type "help", "copyright", "credits" or "license" for more information.
      >>> </u></i></b>import tensorflow as tf
      <b><i><u>WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
-
      WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AttrValue is deprecated. Please use tf.compat.v1.AttrValue instead.
-
      WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.COMPILER_VERSION is deprecated. Please use tf.version.COMPILER_VERSION instead.
-
      WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.CXX11_ABI_FLAG is deprecated. Please use tf.sysconfig.CXX11_ABI_FLAG instead.
-
      WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.ConditionalAccumulator is deprecated. Please use tf.compat.v1.ConditionalAccumulator instead.
-
      >>> </u></i></b>a = tf.constant([1.0, 2.0], name="a")
      <b><i><u>>>> </u></i></b>b = tf.constant([5.0, 6.0], name="b")
      <b><i><u>>>> </u></i></b>result = a + b
      <b><i><u>>>> </u></i></b>result
-     <b><i><u>&gt;tf.Tensor 'add:0' shape=(2,) dtype=float32&lt;
+     <b><i><u>&lt;tf.Tensor 'add:0' shape=(2,) dtype=float32&gt;
      >>> </u></i></b>sess = tf.Session()
      <b><i><u>>>> </u></i></b>sess.run(result)
      <b><i><u>array([6., 8.], dtype=float32)
