@@ -61,7 +61,7 @@
                       Got        03e8ffcde09dbf7e23f57d3bd68923d8300c8188897dd02ab52ab3ebe755e417</i></code></pre>
   2. Upgrade numpy (Ver. 1.16.2 to 1.17.4)
      <pre><code>(venv) $ pip3 install --upgrade numpy</code></pre>
-     > 아래와 같이 나오는 것은 VirtualEnv에서 설치해서 나오는 현상으로 무시해도 된다.
+     > 아래와 같이 <i>numpy</i> 삭제를 할 수 없다고 나오는 것은 VirtualEnv에서 설치해서 나오는 현상으로 무시해도 된다.
        <pre><code>Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
        Collecting numpy
          Downloading https://www.piwheels.org/simple/numpy/numpy-1.17.4-cp37-cp37m-linux_armv7l.whl (10.2MB)
@@ -70,8 +70,7 @@
          Found existing installation: numpy 1.16.2
            <b><i>Not uninstalling numpy at /usr/lib/python3/dist-packages, outside environment /home/pi/venv
            Can't uninstall 'numpy'. No files were found to uninstall.</i></b>
-       Successfully installed numpy-1.17.4
-       </code></pre>
+       Successfully installed numpy-1.17.4</code></pre>
        
   3. Test
      * Test #1
