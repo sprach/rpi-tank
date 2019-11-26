@@ -38,8 +38,12 @@
        Not overwriting existing python script /home/pi/env/bin/python (you must use /home/pi/env/bin/python3)
        Installing setuptools, pkg_resources, pip, wheel...done.</code></pre>
 
-  4. Install tensorflow
+  ## TensorFlow
+  1. Install tensorflow
      <pre><code>$ sudo pip3 install tensorflow</code></pre>
+  2. Test
+    <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
 
   ## GPIO 라이브러리 설치
   <pre><code>$ sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
