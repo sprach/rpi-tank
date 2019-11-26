@@ -3,6 +3,16 @@
     <pre><code>$ sudo apt-get update
     $ sudo apt-get upgrade</code></pre>
 
+# 라즈베리파이 원격접속 설정
+  > Windows 원격데스크톱용
+  1. 기존 VNC Server 제거
+     <pre><code>$ sudo apt-get purge realvnc-vnc-server</code></pre>
+  2. 새 VNC Server 설치
+     <pre><code>$ sudo apt-get install tightvncserver</code></pre>
+  3. XRDP 설치
+     <pre><code>$ sudo apt-get install xrdp</code></pre>
+  4. Windows 원격데스크톱으로 라즈베리파이에 연결
+
 # 라즈베리파이 한글 폰트 설치
   1. 라즈베리파이에서 한글 보기용 폰트 설치
      <pre><code>sudo apt-get install fonts-unfonts-core fonts-nanum fonts-nanum-extra</code></pre>
@@ -135,16 +145,6 @@
         $ sudo modprobe uvcvideo</code></pre>
   5. WebCam 실행
      * 라즈베리파이 아이콘 &gt; Sound &amp; Video &gt; guvcview
-
-# 라즈베리파이 원격접속 설정
-  > Windows 원격데스크톱용
-  1. 기존 VNC Server 제거
-     <pre><code>$ sudo apt-get purge realvnc-vnc-server</code></pre>
-  2. 새 VNC Server 설치
-     <pre><code>$ sudo apt-get install tightvncserver</code></pre>
-  3. XRDP 설치
-     <pre><code>$ sudo apt-get install xrdp</code></pre>
-  4. Windows 원격데스크톱으로 라즈베리파이에 연결
 
 # 자이로 및 가속도 센서
   * https://kingtidesailing.blogspot.com/2016/02/how-to-setup-mpu-9250-on-raspberry-pi_25.html
