@@ -36,7 +36,7 @@
        Installing setuptools, pkg_resources, pip, wheel...done.</code></pre>
 
   ## GPIO 라이브러리 설치
-  <pre><code>sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
+  <pre><code>$ sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
   
   ## gpiozero
   * gpiozero는 GPIO를 함수화시킨 라이브러리
