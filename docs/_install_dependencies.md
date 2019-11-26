@@ -39,10 +39,10 @@
         <b><i><u>Desktop    Download   ... venv</u></i></b></code></pre>
      2. Activate the virtual environment
         <pre><code>$ source ./venv/bin/activate
-	(venv) $</code></pre>
+        (venv) $</code></pre>
      3. Install packages within a virtual environment (Start by upgradeing pip.)
         <pre><code>(venv) $ pip install --upgrade pip
-	(venv) $ pip list  # show packages installed within the virtual environment</code></pre>
+        (venv) $ pip list  # show packages installed within the virtual environment</code></pre>
      * To exit virtualenv later
        <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow</code></pre>
 
