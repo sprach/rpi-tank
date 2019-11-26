@@ -1,7 +1,8 @@
 # Raspbian Update and Upgrade
   * Upgrade시 소요시간이 제법 길기 때문에 교육시에는 실행하지 말 것
     <pre><code>$ sudo apt-get update
-    $ sudo apt-get upgrade</code></pre>
+    $ sudo apt-get upgrade
+    $ sudo rpi-update -y</code></pre>
 
 # 라즈베리파이 한글 폰트 설치
   1. 라즈베리파이에서 한글 보기용 폰트 설치
