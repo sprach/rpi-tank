@@ -35,8 +35,8 @@
   3. Create a virtual environment
      1. Create a new virtual environment
         <pre><code>$ virtualenv --system-site-packages -p python3 ./venv
-	$ ls
-	<b><i><u>Desktop    Download   ... venv</u></i></b></code></pre>
+        $ ls
+        <b><i><u>Desktop    Download   ... venv</u></i></b></code></pre>
      2. Activate the virtual environment
         <pre><code>$ source ./venv/bin/activate
 	(venv) $</code></pre>
