@@ -128,7 +128,7 @@
        read only=no
        browseable=yes</i></b>
        &lt;ESC&gt;:wq&lt;Enter&gt;
-       $</code></pre>
+       $ ■</code></pre>
     
     5. Samba 재시작
        <pre><code>$ sudo /etc/init.d/smbd restart</code></pre>
