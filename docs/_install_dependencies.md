@@ -20,7 +20,7 @@
    
   4. Setup Virtual Env
      <pre><code>$ python3 -m virtualenv -p python3 env --system-site-packages
-     $ echo "source ./env/bin/activate" &lt;&lt ~/.bashrc
+     $ echo "source ./env/bin/activate" &gt;&gt ~/.bashrc
      $ source ~/.bashrc</code></pre>
 
   ## GPIO 라이브러리 설치
