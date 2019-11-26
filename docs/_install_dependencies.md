@@ -50,7 +50,7 @@
   > Tensorflow 설치는 VirtualEnv를 기본으로 하되, 실습에서는 시스템 설치와 가상 설치는 별도로 구분하지 않는다.
   1. Install tensorflow
      * Virtualenv install
-       > <i>pip</i>를 이용할 경우 Version 2.7로 동작하여 <i>TensorFlow</i> 설치가 제대로 되지 않는다.
+       > <i>pip</i>를 이용할 경우 Version 2.7로 동작하여 <i>TensorFlow</i> 설치가 제대로 되지 않으므로 <i>pip3</i>로 설치해야 한다.
        <pre><code>(venv) $ sudo pip3 install --upgrade tensorflow</code></pre>
      * System install
        <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
