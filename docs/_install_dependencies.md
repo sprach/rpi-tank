@@ -53,6 +53,11 @@
        <pre><code>(venv) $ sudo pip install --upgrade tensorflow</code></pre>
      * System install
        <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
+     > 아래와 같이 오류가 발생하는 경우 다운로드 속도의 문제일 가능성이 높으므로 다시 설치를 시도해 본다.
+       <pre><code><i>THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.
+          tensorflow from https://www.piwheels.org/simple/tensorflow/tensorflow-1.14.0-cp27-none-linux_armv7l.whl#sha256=dad8cc7ab0497f0c91be00d07ab64d203f166d9a436b2c9a874fe033f2ec4cd6:
+                  Expected sha256 dad8cc7ab0497f0c91be00d07ab64d203f166d9a436b2c9a874fe033f2ec4cd6
+                      Got        03e8ffcde09dbf7e23f57d3bd68923d8300c8188897dd02ab52ab3ebe755e417</i></code></pre>
   2. Test 1
     <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
