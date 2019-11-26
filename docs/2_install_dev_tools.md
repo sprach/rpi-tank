@@ -94,6 +94,9 @@
 
   ## Samba
   * 라즈베리파이에서의 작업
+    * 가상환경인 경우 빠져 나오기
+      <pre><code>(venv) $ deactivate</code></pre>
+
     1. 라즈비안 업데이트
        <pre><code>$ sudo apt-get update</code></pre>
     
