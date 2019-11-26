@@ -19,12 +19,21 @@
      <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
    
   4. Setup Virtual Env
-     <pre><code>$ python3 -m virtualenv -p python3 env --system-site-packages
+     <pre><code>$ sudo python3 -m virtualenv -p python3 env --system-site-packages
      $ source .bashrc</code></pre>
 
      * .bashrc 파일의 맨 끝에 'source env/bin/activate'가 없을 때 아래와 같이 적용
        <pre><code>$ echo "source ./env/bin/activate" &gt;&gt ~/.bashrc
        $ source ~/.bashrc</code></pre>
+
+     * check: sudo 를 넣지 않고 설치한 뒤에 다시 sudo 로 명령 실행할 경우 발생한 오류가 있음
+       <pre><code>Already using interpreter /usr/bin/python3
+       Using base prefix '/usr'
+       /usr/lib/python3/dist-packages/virtualenv.py:1090: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+         import imp
+       New python executable in /home/pi/env/bin/python3
+       Not overwriting existing python script /home/pi/env/bin/python (you must use /home/pi/env/bin/python3)
+       Installing setuptools, pkg_resources, pip, wheel...done.</code></pre>
 
   ## GPIO 라이브러리 설치
   <pre><code>sudo apt-get install rpi.gpio rpi.gpio-common</code></pre>
