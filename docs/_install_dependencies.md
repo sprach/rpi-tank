@@ -59,30 +59,45 @@
           tensorflow from https://www.piwheels.org/simple/tensorflow/tensorflow-1.14.0-cp27-none-linux_armv7l.whl#sha256=dad8cc7ab0497f0c91be00d07ab64d203f166d9a436b2c9a874fe033f2ec4cd6:
                   Expected sha256 dad8cc7ab0497f0c91be00d07ab64d203f166d9a436b2c9a874fe033f2ec4cd6
                       Got        03e8ffcde09dbf7e23f57d3bd68923d8300c8188897dd02ab52ab3ebe755e417</i></code></pre>
-  2. Test 1
-    <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
-    <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
-  3. Test 2
-     <pre><code>$ python3
-     <b><i><u>Python 3.7.3 (default, Apr  3 2019, 05:39:12) 
-     [GCC 8.2.0] on linux
-     Type "help", "copyright", "credits" or "license" for more information.
-     >>> </u></i></b>import tensorflow as tf
-     <b><i><u>WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
-     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AttrValue is deprecated. Please use tf.compat.v1.AttrValue instead.
-     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.COMPILER_VERSION is deprecated. Please use tf.version.COMPILER_VERSION instead.
-     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.CXX11_ABI_FLAG is deprecated. Please use tf.sysconfig.CXX11_ABI_FLAG instead.
-     WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.ConditionalAccumulator is deprecated. Please use tf.compat.v1.ConditionalAccumulator instead.
-     >>> </u></i></b>a = tf.constant([1.0, 2.0], name="a")
-     <b><i><u>>>> </u></i></b>b = tf.constant([5.0, 6.0], name="b")
-     <b><i><u>>>> </u></i></b>result = a + b
-     <b><i><u>>>> </u></i></b>result
-     <b><i><u>&lt;tf.Tensor 'add:0' shape=(2,) dtype=float32&gt;
-     >>> </u></i></b>sess = tf.Session()
-     <b><i><u>>>> </u></i></b>sess.run(result)
-     <b><i><u>array([6., 8.], dtype=float32)
-     >>> </u></i></b>exit()
-     $</code></pre>
+  2. Upgrade numpy (Ver. 1.16.2 to 1.17.4)
+     <pre><code>(venv) $ pip3 install --upgrade numpy</code></pre>
+     > 아래와 같이 나오는 것은 VirtualEnv에서 설치해서 나오는 현상으로 무시해도 된다.
+       <pre><code>Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+       Collecting numpy
+         Downloading https://www.piwheels.org/simple/numpy/numpy-1.17.4-cp37-cp37m-linux_armv7l.whl (10.2MB)
+           |████████████████████████████████| 10.2MB 90kB/s 
+       Installing collected packages: numpy
+         Found existing installation: numpy 1.16.2
+           <b><i>Not uninstalling numpy at /usr/lib/python3/dist-packages, outside environment /home/pi/venv
+           Can't uninstall 'numpy'. No files were found to uninstall.</i></b>
+       Successfully installed numpy-1.17.4
+       </code></pre>
+       
+  3. Test
+     * Test #1
+       <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+       <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
+     * Test 2
+       <pre><code>$ python3
+       <b><i><u>Python 3.7.3 (default, Apr  3 2019, 05:39:12) 
+       [GCC 8.2.0] on linux
+       Type "help", "copyright", "credits" or "license" for more information.
+       >>> </u></i></b>import tensorflow as tf
+       <b><i><u>WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.
+       WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.AttrValue is deprecated. Please use tf.compat.v1.AttrValue instead.
+       WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.COMPILER_VERSION is deprecated. Please use tf.version.COMPILER_VERSION instead.
+       WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.CXX11_ABI_FLAG is deprecated. Please use tf.sysconfig.CXX11_ABI_FLAG instead.
+       WARNING:tensorflow:From /usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py:98: The name tf.ConditionalAccumulator is deprecated. Please use tf.compat.v1.ConditionalAccumulator instead.
+       >>> </u></i></b>a = tf.constant([1.0, 2.0], name="a")
+       <b><i><u>>>> </u></i></b>b = tf.constant([5.0, 6.0], name="b")
+       <b><i><u>>>> </u></i></b>result = a + b
+       <b><i><u>>>> </u></i></b>result
+       <b><i><u>&lt;tf.Tensor 'add:0' shape=(2,) dtype=float32&gt;
+       >>> </u></i></b>sess = tf.Session()
+       <b><i><u>>>> </u></i></b>sess.run(result)
+       <b><i><u>array([6., 8.], dtype=float32)
+       >>> </u></i></b>exit()
+       $</code></pre>
   * Unistall tensorflow
     <pre><code>$ sudo pip3 uninstall -y protobuf
     $ sudo pip3 uninstall -y tensorflow</code></pre>
