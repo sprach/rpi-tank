@@ -48,7 +48,10 @@
 
   ## TensorFlow
   1. Install tensorflow
-     <pre><code>$ sudo pip3 install tensorflow</code></pre>
+     * System install
+       <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
+     * Virtualenv install
+       <pre><code>(venv) $ sudo pip install --upgrade tensorflow</code></pre>
   2. Test 1
     <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
