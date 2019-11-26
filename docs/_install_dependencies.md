@@ -36,13 +36,13 @@
      1. Create a new virtual environment
         <pre><code>$ virtualenv --system-site-packages -p python3 ./venv
         $ ls
-        <b><i><u>Desktop    Download   ... venv</u></i></b></code></pre>
+        <b><i><u>Desktop    Download   ...   venv</u></i></b></code></pre>
      2. Activate the virtual environment
         <pre><code>$ source ./venv/bin/activate
         (venv) $</code></pre>
      3. Install packages within a virtual environment (Start by upgradeing pip.)
-        <pre><code>(venv) $ pip install --upgrade pip
-        (venv) $ pip list  # show packages installed within the virtual environment</code></pre>
+        <pre><code>(venv) $ pip3 install --upgrade pip
+        (venv) $ pip3 list  # show packages installed within the virtual environment</code></pre>
      * To exit virtualenv later
        <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow</code></pre>
 
@@ -50,7 +50,8 @@
   > Tensorflow 설치는 VirtualEnv를 기본으로 하되, 실습에서는 시스템 설치와 가상 설치는 별도로 구분하지 않는다.
   1. Install tensorflow
      * Virtualenv install
-       <pre><code>(venv) $ sudo pip install --upgrade tensorflow</code></pre>
+       > <i>pip</i>를 이용할 경우 Version 2.7로 동작하여 <i>TensorFlow</i> 설치가 제대로 되지 않는다.
+       <pre><code>(venv) $ sudo pip3 install --upgrade tensorflow</code></pre>
      * System install
        <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
      > 아래와 같이 오류가 발생하는 경우 다운로드 속도의 문제일 가능성이 높으므로 다시 설치를 시도해 본다.
