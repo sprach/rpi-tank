@@ -6,16 +6,17 @@
        $ sudo apt-get autoremove -y</code></pre>
 
   1. 개발 관련 파일
-     <pre><code>$ sudo apt-get install -y cmake git</code></pre>
+     <pre><code>$ sudo apt-get install -y git cmake pkg-config</code></pre>
 
   2. Python files
-     <pre><code>$ sudo apt-get install -y python3-dev python3-pillow python3-virtualenv python3-numpy python3-picamera python3-pandas python3-rpi.gpio</code></pre>
+     <pre><code>$ sudo apt-get install -y python3-dev python3-distlib python3-setuptools python3-pip python3-wheel python3-pillow python3-virtualenv python3-numpy python3-picamera python3-pandas python3-rpi.gpio</code></pre>
 
   3. Dependency files
-     <pre><code>$ sudo apt-get install -y build-essential i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev gfortran libatlas-base-dev libopenblas-dev libhdf5-dev</code></pre>
+     <pre><code>$ sudo apt-get install -y build-essential i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev gfortran libatlas-base-dev libopenblas-dev libhdf5-dev
+     $ sudo apt-get install -y libxvidcore-dev libx264-dev</code></pre>
 
   4. OpenCV files
-     <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libqt4-test</code></pre>
+     <pre><code>$ sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev libswscale-dev libqtgui4 libjpeg-dev libpng12-dev libv4l-dev libqt4-test</code></pre>
 
   ## VirtualEnv
   * Requires Pytho &gt; 3.4 and pip &gt;= 19.0
