@@ -4,7 +4,7 @@
     2. 라즈베리파이 한글 폰트 설치
     3. 라즈베리파이 원격접속 설정
        * 라즈베리파이를 Windows 원격데스크톱으로 접속할 수 있도록 설정하는 법
-  * [2_install_dev_files](2_install_dev_files.md)
+  * [2_install_dev_tools](2_install_dev_tools.md)
     1. 개발 관련 파일 설치
     2. VirtualEnv
     3. TensorFlow
