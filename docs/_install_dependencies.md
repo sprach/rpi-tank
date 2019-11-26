@@ -47,11 +47,12 @@
        <pre><code>(venv) $ deactivate  # don't exit until you're done using TensorFlow</code></pre>
 
   ## TensorFlow
+  > Tensorflow 설치는 VirtualEnv를 기본으로 하되, 실습에서는 시스템 설치와 가상 설치는 별도로 구분하지 않는다.
   1. Install tensorflow
-     * System install
-       <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
      * Virtualenv install
        <pre><code>(venv) $ sudo pip install --upgrade tensorflow</code></pre>
+     * System install
+       <pre><code>$ pip3 install --user --upgrade tensorflow   # install in $HOME</code></pre>
   2. Test 1
     <pre><code>$ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
     <b><i><u>Tensor("Sum:0", shape=(), dtype=float32)</u></i></b></code></pre>
