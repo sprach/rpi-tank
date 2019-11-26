@@ -126,7 +126,7 @@
 
     6. 라즈베리파이의 IP 주소 확인
        <pre><code>$ ifconfig</code></pre>
-       * WiFi 주소인 경우에는 <b><i>wlan0</i></b>, Ethernet인 경우에는 <b><i>wlan0</i></b>의 <b><i>inet</i></b> 주소를 사용합니다.
+       * WiFi 주소인 경우에는 <b><i>wlan0</i></b>, Ethernet인 경우에는 <b><i>eth0</i></b>의 <b><i>inet</i></b> 주소를 사용합니다.
 
   * Windows에서의 작업
     1. &lt;Windows icon key&gt; + &lt;R&gt;
