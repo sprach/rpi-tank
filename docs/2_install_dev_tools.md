@@ -99,6 +99,10 @@
   * Unistall tensorflow
     <pre><code>$ sudo pip3 uninstall -y protobuf
     $ sudo pip3 uninstall -y tensorflow</code></pre>
+  
+  * 참고: TensorFlow 소스
+    <pre><code>$ git clone https://github.com/tensorflow/tensorflow.git</code></pre>
+
 
   ## Samba
   * 라즈베리파이에서의 작업
