@@ -103,8 +103,7 @@
   * 참고
     * TensorFlow 소스
       <pre><code>$ git clone https://github.com/tensorflow/tensorflow.git</code></pre>
-    * TensorFkiw 학습
-      https://www.tensorflow.org/
+    * TensorFlow 학습: https://www.tensorflow.org/
 
 
   ## Samba
