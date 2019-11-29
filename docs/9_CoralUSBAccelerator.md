@@ -22,3 +22,6 @@
            * 3차원 이상 텐서 사용할 경우 가장 안쪽의 3개 차원만이 1보다 큰 크기를 가짐
         5. 모델은 Edge TPU를 지원하는 연산만 가능함
 
+  * 설치
+    - https://coral.withgoogle.com/docs/accelerator/get-started/
+    - [Github tflite](https://github.com/google-coral/tflite/tree/master/python/examples/detection) : https://github.com/google-coral/tflite/tree/master/python/examples/detection
