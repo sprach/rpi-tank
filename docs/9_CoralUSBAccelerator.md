@@ -27,9 +27,9 @@
   - [Github tflite](https://github.com/google-coral/tflite/tree/master/python/examples/detection) : https://github.com/google-coral/tflite/tree/master/python/examples/detection
 
   1. Debian package repository 추가
-     <pre><code>echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
-     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-     sudo apt-get update
+     <pre><code>$ echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
+     $ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+     $ sudo apt-get update
      </code></pre>
      <pre><code>
      </code></pre>
