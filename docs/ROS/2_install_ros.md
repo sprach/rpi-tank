@@ -48,10 +48,10 @@
 
         * libboost 이슈 수정
           > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
-          > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스 수정해야 함
+          > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
 
           1. 해당 소스 찾기
-            <pre><code>$ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
+             <pre><code>$ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
           2. 수정 예시
              * from #1
                <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));</code></pre>
