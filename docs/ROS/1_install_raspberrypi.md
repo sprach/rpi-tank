@@ -1,3 +1,19 @@
+# MicroSD 사전 설정
+  > HDMI와 같이 디스플레이를 연결할 수 없을 때의 작업
+  1. ssh 사용을 위한 빈 'ssh' 파일 복사 또는 만들어 넣기
+  2. WiFi 접속을 위한 'wpa_supplicant.conf' 파일 복사해 넣기
+     <pre><code>country=GB
+     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+     update_config=1
+
+     network={
+       ssid="&gt;ssid-name&lt;"
+       psk="&gt;password&lt;"
+     }</code></pre>
+  3. USB Serial 접속을 위한 Serial 활성화 Key 삽입
+     <pre><code>...
+     enable_uart=1</code></pre>
+
 # Raspbian Update and Upgrade
   * Upgrade시 소요시간이 제법 길기 때문에 교육시에는 실행하지 말 것
     <pre><code>$ sudo apt-get update
