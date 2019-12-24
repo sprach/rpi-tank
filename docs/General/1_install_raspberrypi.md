@@ -7,8 +7,8 @@
      update_config=1
 
      network={
-       ssid="&gt;ssid-name&lt;"
-       psk="&gt;password&lt;"
+       ssid="&lt;ssid-name&gt;"
+       psk="&lt;password&gt;"
      }</code></pre>
   3. USB Serial 접속을 위한 Serial 활성화 Key 삽입
      <pre><code>...
