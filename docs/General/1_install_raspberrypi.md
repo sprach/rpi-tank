@@ -19,20 +19,19 @@
      2. WiFi
         <pre><code>2 Network Options
         N2 Wi-fi
-        <i>Please enter SSID</i> &lt;ssid-name&gt;
-        <i>Please enter passphrase. Leave it empty if none.</i> &lt;password&gt;</code></pre>
+        Please enter SSID <i>&lt;ssid-name&gt;</i>
+        Please enter passphrase. Leave it empty if none. <i>&lt;password&gt;</i></code></pre>
      3. Enable ssh
         <pre><code>5 Interfacing Options
         P2 SSH
-        <i>Would you like the SSH server to be enabled?</i> &lt;Yes&gt;
-        <i>The SSH server is enabled</i> &lt;Ok&gt;</code></pre>
+        Would you like the SSH server to be enabled? <i>&lt;Yes&gt;</i>
+        The SSH server is enabled <i>&lt;Ok&gt;</i></code></pre>
      4. Finish the Raspberry Pi config
         <pre><code>&lt;Finish&gt;</code></pre>
 
 # Raspberry Pi의 IP 주소
   <pre><code> $ ifconfig</code></pre>
-  <pre><code>
-  eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+  <pre><code>eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         ether b8:27:eb:0a:0d:86  txqueuelen 1000  (Ethernet)
         RX packets 0  bytes 0 (0.0 B)
         RX errors 0  dropped 0  overruns 0  frame 0
@@ -55,8 +54,8 @@
         RX packets 15  bytes 1648 (1.6 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 37  bytes 5409 (5.2 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-  </code></pre>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
+
 # Raspbian Update and Upgrade
   * Upgrade시 소요시간이 제법 길기 때문에 교육시에는 실행하지 말 것
     <pre><code>$ sudo apt-get update
