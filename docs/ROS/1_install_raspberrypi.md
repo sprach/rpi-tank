@@ -13,6 +13,21 @@
   3. USB Serial 접속을 위한 Serial 활성화 Key 삽입
      <pre><code>...
      enable_uart=1</code></pre>
+     * 'ssh'와 'wpa_supplicant.conf' 파일 복사를 해 넣지 않은 경우
+     1. Raspberry Pi config
+        <pre><code>$ sudo raspi-config</code></pre>
+     2. WiFi
+        <pre><code>2 Network Options
+        N2 Wi-fi
+        <i>Please enter SSID</i> &lt;ssid-name&gt;
+        <i>Please enter passphrase. Leave it empty if none.</i> &lt;password&gt;</code></pre>
+     3. Enable ssh
+        <pre><code>5 Interfacing Options
+        P2 SSH
+        <i>Would you like the SSH server to be enabled?</i> &lt;Yes&gt;
+        <i>The SSH server is enabled</i> &lt;Ok&gt;</code></pre>
+     4. Finish the Raspberry Pi config
+        <pre><code>&lt;Finish&gt;</code></pre>
 
 # Raspbian Update and Upgrade
   * Upgrade시 소요시간이 제법 길기 때문에 교육시에는 실행하지 말 것
