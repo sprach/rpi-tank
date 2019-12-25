@@ -82,15 +82,15 @@
 
              * 찾은 파일
                > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
-                 <pre><code>./src/actionlib/CHANGELOG.rst
-                 ./src/actionlib/include/actionlib/client/simple_action_client.h
-                 ./src/actionlib/include/actionlib/destruction_guard.h
-                 ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
-                 ./src/actionlib/src/connection_monitor.cpp
-                 ./src/actionlib/test/destruction_guard_test.cpp
-                 ./src/bond_core/bondcpp/src/bond.cpp
-                 ./src/ros_comm/roscpp/include/ros/timer_manager.h
-                 ./src/ros/roslib/test/utest.cpp</code></pre>
+               <pre><code>./src/actionlib/CHANGELOG.rst
+               ./src/actionlib/include/actionlib/client/simple_action_client.h
+               ./src/actionlib/include/actionlib/destruction_guard.h
+               ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
+               ./src/actionlib/src/connection_monitor.cpp
+               ./src/actionlib/test/destruction_guard_test.cpp
+               ./src/bond_core/bondcpp/src/bond.cpp
+               ./src/ros_comm/roscpp/include/ros/timer_manager.h
+               ./src/ros/roslib/test/utest.cpp</code></pre>
 
                * 수정 예시 #1
                  <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));
