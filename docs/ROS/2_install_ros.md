@@ -70,39 +70,38 @@
         * rvix용 OGRE 설치
           <pre><code>$ sudo apt-get install -y libogre-1.9-dev</code></pre>
 
-        * libboost 이슈 수정 (Skip)
+        * (Skip) libboost 이슈 수정 (Skip)
           > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
           > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
           > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있으므로 해당 소스 찾기는 건너뛰어도 됨</b>
 
-          1. 해당 소스 찾기 및 수정
-             * 소스 찾기
-               <pre><code>$ cd ~
-               $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
+          * 오류 소스 찾기
+            <pre><code>$ cd ~
+            $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
 
-             * 찾은 파일
-               > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
-               <pre><code>./src/actionlib/CHANGELOG.rst
-               ./src/actionlib/include/actionlib/client/simple_action_client.h
-               ./src/actionlib/include/actionlib/destruction_guard.h
-               ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
-               ./src/actionlib/src/connection_monitor.cpp
-               ./src/actionlib/test/destruction_guard_test.cpp
-               ./src/bond_core/bondcpp/src/bond.cpp
-               ./src/ros_comm/roscpp/include/ros/timer_manager.h
-               ./src/ros/roslib/test/utest.cpp</code></pre>
+          * 찾은 파일
+            > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
+            <pre><code>./src/actionlib/CHANGELOG.rst
+            ./src/actionlib/include/actionlib/client/simple_action_client.h
+            ./src/actionlib/include/actionlib/destruction_guard.h
+            ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
+            ./src/actionlib/src/connection_monitor.cpp
+            ./src/actionlib/test/destruction_guard_test.cpp
+            ./src/bond_core/bondcpp/src/bond.cpp
+            ./src/ros_comm/roscpp/include/ros/timer_manager.h
+            ./src/ros/roslib/test/utest.cpp</code></pre>
 
-               * 수정 예시 #1
-                 <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));
-                 → boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
+          * 수정 예시 #1
+            <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));
+            → boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
 
-               * 수정 예시 #2
-                 <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)
-                 → boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
+          * 수정 예시 #2
+            <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)
+            → boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
 
      3. rosdep 도구로 나머지 종속성 설치
                <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
-          
+
   3. ROS 빌드
      1. Swap 공간 확보
         > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
