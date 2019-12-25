@@ -110,13 +110,13 @@
         <pre><code>$ sudo vi /etc/dphys-swapfile
         ...
         # CONF_SWAPSIZE=100
-        CONF_SWAPSIZE=1024
+        CONF_SWAPSIZE=2048
         &lt;ESC&gt;:wq!
         $ sudo /etc/init.d/dphys-swapfile stop
         $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
      2. catkin 패키지 빌드
-        * 컴파일 과정은 <b>약 2시간</b>(Raspberry Pi 3 기준) 이상 소요
+        * 컴파일 과정은 <b>약 3시간</b>(Raspberry Pi 3 기준) 이상 소요
         <pre><code>$ cd ~/ros_catkin_ws
         $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</code></pre>
 
@@ -154,7 +154,7 @@
         <pre><code>$ sudo vi /etc/dphys-swapfile
         ...
         CONF_SWAPSIZE=100
-        # CONF_SWAPSIZE=1024
+        # CONF_SWAPSIZE=2048
         &lt;ESC&gt;:wq!
         $ sudo /etc/init.d/dphys-swapfile stop
         $ sudo /etc/init.d/dphys-swapfile start</code></pre>
