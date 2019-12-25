@@ -109,8 +109,7 @@
                 > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
                 > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
                 > 100MB인 기본값을 2,048MB로 늘려서 빌드를 하고, 끝나면 원상복구를 해 놓아야 한다.
-                <pre><code>$ cd ~
-                $ sudo vi /etc/dphys-swapfile
+                <pre><code>$ sudo vi /etc/dphys-swapfile
                 ...
                 # CONF_SWAPSIZE=100
                 CONF_SWAPSIZE=1024
