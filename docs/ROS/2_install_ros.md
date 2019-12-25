@@ -3,8 +3,10 @@
   
 # Install ROS Melodic on Raspberry Pi 3
   1. Ref.
-     1. http://wiki.ros.org/melodic/Installation/Source
-     2. https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1
+     1. [ROS](http://wiki.ros.org/melodic/Installation/Source) : http://wiki.ros.org/melodic/Installation/Source
+     2. [Hackster.IO](https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1) : https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1
+     3. [Kyubot Blog](https://kyubot.tistory.com/130) : https://kyubot.tistory.com/130
+     4. [Install ROS Melodic on Raspberry Pi 3 with Ubuntu Mate](https://roboticsbackend.com/install-ros-on-raspberry-pi-3/) : https://roboticsbackend.com/install-ros-on-raspberry-pi-3/
   
   2. Install ROS Melodic
      1. Install Dependencies and Download the Packages
@@ -66,7 +68,7 @@
         * rvix용 OGRE 설치
           <pre><code>sudo apt-get install -y libogre-1.9-dev</code></pre>
 
-        * libboost 이슈 수정
+        * libboost 이슈 수정 (Skip)
           > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
           > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
           > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있으므로 해당 소스 찾기는 건너뛰어도 됨</b>
@@ -149,8 +151,7 @@
                 </code></pre>
 
              3. Swap 공간 복수
-                <pre><code>$ cd ~
-                $ sudo vi /etc/dphys-swapfile
+                <pre><code>$ sudo vi /etc/dphys-swapfile
                 ...
                 CONF_SWAPSIZE=100
                 # CONF_SWAPSIZE=1024
