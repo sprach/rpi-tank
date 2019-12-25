@@ -8,11 +8,28 @@
   
   2. Install ROS Melodic
      1. Install Dependencies and Download the Packages
-        * 레포지토리를 설정하고 필요한 종속성 설치
+        * 레포지토리를 설정하고 필요한 종속성 설치 (candi #1)
           <pre><code>$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
           $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
           $ sudo apt-get update
-          $ sudo apt-get install -y python-empy python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake</code></pre>
+          $ sudo apt-get install -y python-empy python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake
+          $ sudo pip install --upgrade setuptools</code></pre>
+
+        * sources.list 설정 (candi #2)
+          <pre><code>$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'</code></pre>
+        
+        * Key 설정
+          <pre><code>$ wget http://packages.ros.org/ros.key -O - | sudo apt-key add -</code></pre>
+
+        * Update
+          <pre><code>$ sudo apt-get update</code></pre>
+
+        * Raspberry Pi 패키지 설치
+          <pre><code>$ sudo apt-get install -y build-essential cmake dirmngr</code></pre>
+
+        * 파이썬 &amp; ROS 개발 패키지 설치
+          <pre><code>$ sudo apt-get install -y python-empy python-rosdep python-rosinstall-generator python-wstool python-rosinstall
+          $ sudo pip install --upgrade setuptools</code></pre>
 
         * rosdep를 초기화하고 업데이트
           <pre><code>$ sudo rosdep init  
@@ -30,6 +47,9 @@
           $ wstool init -j8 src melodic-desktop-wet.rosinstall</code></pre>
           > <i>watool init</i>가 실패하거나 중단된 경우 다음을 실행하여 다운로드를 재개할 수 있다.
           <pre><code>$ wstool update -j4 -t src</code></pre>
+
+        * Dependency packages 설치 확인
+          <pre><code>rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
 
      2. 이슈 수정
         * collada_urdf 종속 문제를 해결하기 위해 호환 가능 버전인 Assimp 설치
@@ -49,10 +69,12 @@
         * libboost 이슈 수정
           > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
           > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
+          > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있으므로 해당 소스 찾기는 건너뛰어도 됨</b>
 
           1. 해당 소스 찾기
              <pre><code>$ cd ~
              $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
+
              * 수정 예시
                * from #1
                  <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));</code></pre>
@@ -66,9 +88,9 @@
 
                * rosdep 도구로 나머지 종속성 설치
                  <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
+
              * 찾은 파일
                > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
-               > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있음</b>
                <pre><code>./src/actionlib/CHANGELOG.rst
                ./src/actionlib/include/actionlib/client/simple_action_client.h
                ./src/actionlib/include/actionlib/destruction_guard.h
@@ -79,14 +101,21 @@
                ./src/ros_comm/roscpp/include/ros/timer_manager.h
                ./src/ros/roslib/test/utest.cpp</code></pre>
           
-          3. 빌드 설치
-             1. 사전 패키지 설치
-                <pre><code>$ cd ~</code></pre>
-
-             2. catkin 패키지 빌드
+          2. ROS 빌드
+             1. Swap 공간 확보
                 > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
                 > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
                 > 100MB인 기본값을 2,048MB로 늘려서 빌드를 하고, 끝나면 원상복구를 해 놓아야 한다.
+                <pre><code>$ cd ~
+                $ sudo vi /etc/dphys-swapfile
+                ...
+                # CONF_SWAPSIZE=100
+                CONF_SWAPSIZE=1024
+                &lt;ESC&gt;:wq!
+                $ sudo /etc/init.d/dphys-swapfile stop
+                $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+
+             2. catkin 패키지 빌드
                 > 컴파일 과정은 <b>약 1시간</b>이 소요된다.
                 <pre><code>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
                 
@@ -119,9 +148,19 @@
                 Command failed, exiting.
                 </code></pre>
 
-             3. 설치 소싱
+             3. Swap 공간 복수
+                <pre><code>$ cd ~
+                $ sudo vi /etc/dphys-swapfile
+                ...
+                CONF_SWAPSIZE=100
+                # CONF_SWAPSIZE=1024
+                &lt;ESC&gt;:wq!
+                $ sudo /etc/init.d/dphys-swapfile stop
+                $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+
+             4. 설치 소싱
                 <pre><code>$ cd ~
                 $ cp .bashrc .bashrc.bak
                 $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
 
-             4. roscore 실행으로 체크
+             5. roscore 실행으로 체크
