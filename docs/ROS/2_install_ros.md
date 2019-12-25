@@ -151,14 +151,14 @@
 
           Command failed, exiting.</code></pre>
 
-    3. Swap 공간 복구
-       <pre><code>$ sudo vi /etc/dphys-swapfile
-       ...
-       CONF_SWAPSIZE=100
-       # CONF_SWAPSIZE=1024
-       &lt;ESC&gt;:wq!
-       $ sudo /etc/init.d/dphys-swapfile stop
-       $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+     3. Swap 공간 복구
+        <pre><code>$ sudo vi /etc/dphys-swapfile
+        ...
+        CONF_SWAPSIZE=100
+        # CONF_SWAPSIZE=1024
+        &lt;ESC&gt;:wq!
+        $ sudo /etc/init.d/dphys-swapfile stop
+        $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
   4. 설치 소싱
      <pre><code>$ cd ~
