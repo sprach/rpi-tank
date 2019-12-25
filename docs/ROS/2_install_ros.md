@@ -51,7 +51,7 @@
           <pre><code>$ wstool update -j4 -t src</code></pre>
 
         * Dependency packages 설치 확인
-          <pre><code>rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
+          <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
 
      2. 이슈 수정
         * collada_urdf 종속 문제를 해결하기 위해 호환 가능 버전인 Assimp 설치
