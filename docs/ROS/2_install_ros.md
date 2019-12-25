@@ -120,7 +120,8 @@
 
              2. catkin 패키지 빌드
                 > 컴파일 과정은 <b>약 1시간</b>이 소요된다.
-                <pre><code>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
+                <pre><code>$ cd ~/ros_catkin_ws
+                $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
                 
                 CMake Error at CMakeLists.txt:19 (find_package):
                   By not providing "Findconsole_bridge.cmake" in CMAKE_MODULE_PATH this
