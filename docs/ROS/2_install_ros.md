@@ -116,7 +116,7 @@
         $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
      2. catkin 패키지 빌드
-        * 컴파일 과정은 <b>약 1시간</b> 이상 소요
+        * 컴파일 과정은 <b>약 2시간</b>(Raspberry Pi 3 기준) 이상 소요
         <pre><code>$ cd ~/ros_catkin_ws
         $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</code></pre>
 
