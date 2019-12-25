@@ -65,6 +65,7 @@
           $ cmake .
           $ make
           $ sudo make install</code></pre>
+          > ↑ <i>sudo make install</i> 진행시 Warning이 엄청 나옴
 
         * rvix용 OGRE 설치
           <pre><code>$ sudo apt-get install -y libogre-1.9-dev</code></pre>
@@ -74,95 +75,94 @@
           > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
           > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있으므로 해당 소스 찾기는 건너뛰어도 됨</b>
 
-          1. 해당 소스 찾기
-             <pre><code>$ cd ~
-             $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
-
-             * 수정 예시
-               * from #1
-                 <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));</code></pre>
-               * to #1
-                 <pre><code>boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
-
-               * from #2
-                 <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)</code></pre>
-               * to #2
-                 <pre><code>boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
-
-               * rosdep 도구로 나머지 종속성 설치
-                 <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
+          1. 해당 소스 찾기 및 수정
+             * 소스 찾기
+               <pre><code>$ cd ~
+               $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
 
              * 찾은 파일
                > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
-               <pre><code>./src/actionlib/CHANGELOG.rst
-               ./src/actionlib/include/actionlib/client/simple_action_client.h
-               ./src/actionlib/include/actionlib/destruction_guard.h
-               ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
-               ./src/actionlib/src/connection_monitor.cpp
-               ./src/actionlib/test/destruction_guard_test.cpp
-               ./src/bond_core/bondcpp/src/bond.cpp
-               ./src/ros_comm/roscpp/include/ros/timer_manager.h
-               ./src/ros/roslib/test/utest.cpp</code></pre>
+                 <pre><code>./src/actionlib/CHANGELOG.rst
+                 ./src/actionlib/include/actionlib/client/simple_action_client.h
+                 ./src/actionlib/include/actionlib/destruction_guard.h
+                 ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
+                 ./src/actionlib/src/connection_monitor.cpp
+                 ./src/actionlib/test/destruction_guard_test.cpp
+                 ./src/bond_core/bondcpp/src/bond.cpp
+                 ./src/ros_comm/roscpp/include/ros/timer_manager.h
+                 ./src/ros/roslib/test/utest.cpp</code></pre>
+
+               * 수정 예시 #1
+                 <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));
+                 → boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
+
+               * 수정 예시 #2
+                 <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)
+                 → boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
+
+     3. rosdep 도구로 나머지 종속성 설치
+               <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
           
-          2. ROS 빌드
-             1. Swap 공간 확보
-                > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
-                > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
-                > 100MB인 기본값을 2,048MB로 늘려서 빌드를 하고, 끝나면 원상복구를 해 놓아야 한다.
-                <pre><code>$ sudo vi /etc/dphys-swapfile
-                ...
-                # CONF_SWAPSIZE=100
-                CONF_SWAPSIZE=1024
-                &lt;ESC&gt;:wq!
-                $ sudo /etc/init.d/dphys-swapfile stop
-                $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+  3. ROS 빌드
+     1. Swap 공간 확보
+        > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
+        > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
+        > 100MB인 기본값을 2,048MB로 늘려서 빌드를 하고, 끝나면 원상복구를 해 놓아야 한다.
+        <pre><code>$ sudo vi /etc/dphys-swapfile
+        ...
+        # CONF_SWAPSIZE=100
+        CONF_SWAPSIZE=1024
+        &lt;ESC&gt;:wq!
+        $ sudo /etc/init.d/dphys-swapfile stop
+        $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
-             2. catkin 패키지 빌드
-                > 컴파일 과정은 <b>약 1시간</b>이 소요된다.
-                <pre><code>$ cd ~/ros_catkin_ws
-                $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
-                
-                CMake Error at CMakeLists.txt:19 (find_package):
-                  By not providing "Findconsole_bridge.cmake" in CMAKE_MODULE_PATH this
-                  project has asked CMake to find a package configuration file provided by
-                  "console_bridge", but CMake did not find one.
+     2. catkin 패키지 빌드
+        * 컴파일 과정은 <b>약 1시간</b> 정도 소요
+        <pre><code>$ cd ~/ros_catkin_ws
+        $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</code></pre>
 
-                  Could not find a package configuration file provided by "console_bridge"
-                  with any of the following names:
+        * Error
+          <pre><code>
+          CMake Error at CMakeLists.txt:19 (find_package):
+            By not providing "Findconsole_bridge.cmake" in CMAKE_MODULE_PATH this
+            project has asked CMake to find a package configuration file provided by
+            "console_bridge", but CMake did not find one.
 
-                    console_bridgeConfig.cmake
-                    console_bridge-config.cmake
+            Could not find a package configuration file provided by "console_bridge"
+            with any of the following names:
 
-                  Add the installation prefix of "console_bridge" to CMAKE_PREFIX_PATH or set
-                  "console_bridge_DIR" to a directory containing one of the above files.  If
-                  "console_bridge" provides a separate development package or SDK, be sure it
-                  has been installed.
+              console_bridgeConfig.cmake
+              console_bridge-config.cmake
+
+            Add the installation prefix of "console_bridge" to CMAKE_PREFIX_PATH or set
+            "console_bridge_DIR" to a directory containing one of the above files.  If
+            "console_bridge" provides a separate development package or SDK, be sure it
+            has been installed.
 
 
-                -- Configuring incomplete, errors occurred!
-                See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeOutput.log".
-                See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeError.log".
-                <== Failed to process package 'class_loader':
-                  Command '['/opt/ros/melodic/env.sh', 'cmake', '/home/pi/src/class_loader', '-DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader', '-DCMAKE_INSTALL_PREFIX=/opt/ros/melodic', '-DCMAKE_BUILD_TYPE=Release', '-G', 'Unix Makefiles']' returned non-zero exit status 1
+          -- Configuring incomplete, errors occurred!
+          See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeOutput.log".
+          See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeError.log".
+          <== Failed to process package 'class_loader':
+            Command '['/opt/ros/melodic/env.sh', 'cmake', '/home/pi/src/class_loader', '-DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader', '-DCMAKE_INSTALL_PREFIX=/opt/ros/melodic', '-DCMAKE_BUILD_TYPE=Release', '-G', 'Unix Makefiles']' returned non-zero exit status 1
 
-                Reproduce this error by running:
-                ==> cd /home/pi/build_isolated/class_loader && /opt/ros/melodic/env.sh cmake /home/pi/src/class_loader -DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader -DCMAKE_INSTALL_PREFIX=/opt/ros/melodic -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles'
+          Reproduce this error by running:
+          ==> cd /home/pi/build_isolated/class_loader && /opt/ros/melodic/env.sh cmake /home/pi/src/class_loader -DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader -DCMAKE_INSTALL_PREFIX=/opt/ros/melodic -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles'
 
-                Command failed, exiting.
-                </code></pre>
+          Command failed, exiting.</code></pre>
 
-             3. Swap 공간 복수
-                <pre><code>$ sudo vi /etc/dphys-swapfile
-                ...
-                CONF_SWAPSIZE=100
-                # CONF_SWAPSIZE=1024
-                &lt;ESC&gt;:wq!
-                $ sudo /etc/init.d/dphys-swapfile stop
-                $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+    3. Swap 공간 복구
+      <pre><code>$ sudo vi /etc/dphys-swapfile
+      ...
+      CONF_SWAPSIZE=100
+      # CONF_SWAPSIZE=1024
+      &lt;ESC&gt;:wq!
+      $ sudo /etc/init.d/dphys-swapfile stop
+      $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
-             4. 설치 소싱
-                <pre><code>$ cd ~
-                $ cp .bashrc .bashrc.bak
-                $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
+  4. 설치 소싱
+    <pre><code>$ cd ~
+    $ cp .bashrc .bashrc.bak
+    $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
 
-             5. roscore 실행으로 체크
+  5. roscore 실행으로 체크
