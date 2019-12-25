@@ -53,19 +53,31 @@
           1. 해당 소스 찾기
              <pre><code>$ cd ~
              $ find -type f -print0 | xargs -0 grep 'boost::posix_time::milliseconds' | cut -d: -f1 | sort -u</code></pre>
-          2. 수정 예시
-             * from #1
-               <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));</code></pre>
-             * to #1
-               <pre><code>boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
+             * 수정 예시
+               * from #1
+                 <pre><code>boost::posix_time::milliseconds(loop_duration.toSec() * <i>1000.0f</i>));</code></pre>
+               * to #1
+                 <pre><code>boost::posix_time::milliseconds(<i>int(loop_duration.toSec() * 1000.0f)</i>));</code></pre>
 
-             * from #2
-               <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)</code></pre>
-             * to #2
-               <pre><code>boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
+               * from #2
+                 <pre><code>boost::posix_time::milliseconds(<i>1000.0f</i>)</code></pre>
+               * to #2
+                 <pre><code>boost::posix_time::milliseconds(<i>1000</i>)</code></pre>
 
-             * rosdep 도구로 나머지 종속성 설치
-               <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
-
+               * rosdep 도구로 나머지 종속성 설치
+                 <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
+             * 찾은 파일
+               > <i>vi</i> 사용시 ':set number'로 소스 앞에 라인 번호를 볼 수 있음<br/>
+               > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있음</b>
+               <pre><code>./src/actionlib/CHANGELOG.rst
+               ./src/actionlib/include/actionlib/client/simple_action_client.h
+               ./src/actionlib/include/actionlib/destruction_guard.h
+               ./src/actionlib/include/actionlib/server/simple_action_server_imp.h
+               ./src/actionlib/src/connection_monitor.cpp
+               ./src/actionlib/test/destruction_guard_test.cpp
+               ./src/bond_core/bondcpp/src/bond.cpp
+               ./src/ros_comm/roscpp/include/ros/timer_manager.h
+               ./src/ros/roslib/test/utest.cpp</code></pre>
+          
           3. 빌드 설치
              <pre><code></code></pre>
