@@ -152,17 +152,17 @@
           Command failed, exiting.</code></pre>
 
     3. Swap 공간 복구
-      <pre><code>$ sudo vi /etc/dphys-swapfile
-      ...
-      CONF_SWAPSIZE=100
-      # CONF_SWAPSIZE=1024
-      &lt;ESC&gt;:wq!
-      $ sudo /etc/init.d/dphys-swapfile stop
-      $ sudo /etc/init.d/dphys-swapfile start</code></pre>
+       <pre><code>$ sudo vi /etc/dphys-swapfile
+       ...
+       CONF_SWAPSIZE=100
+       # CONF_SWAPSIZE=1024
+       &lt;ESC&gt;:wq!
+       $ sudo /etc/init.d/dphys-swapfile stop
+       $ sudo /etc/init.d/dphys-swapfile start</code></pre>
 
   4. 설치 소싱
-    <pre><code>$ cd ~
-    $ cp .bashrc .bashrc.bak
-    $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
+     <pre><code>$ cd ~
+     $ cp .bashrc .bashrc.bak
+     $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
 
   5. roscore 실행으로 체크
