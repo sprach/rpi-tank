@@ -66,7 +66,7 @@
           $ sudo make install</code></pre>
 
         * rvix용 OGRE 설치
-          <pre><code>sudo apt-get install -y libogre-1.9-dev</code></pre>
+          <pre><code>$ sudo apt-get install -y libogre-1.9-dev</code></pre>
 
         * libboost 이슈 수정 (Skip)
           > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
