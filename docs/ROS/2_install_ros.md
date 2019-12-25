@@ -55,7 +55,7 @@
 
      2. 이슈 수정
         * collada_urdf 종속 문제를 해결하기 위해 호환 가능 버전인 Assimp 설치
-          * X [Manual Build Assimp](https://github.com/assimp/assimp/blob/master/Build.md) : https://github.com/assimp/assimp/blob/master/Build.md
+          * (Not used) [Manual Build Assimp](https://github.com/assimp/assimp/blob/master/Build.md) : https://github.com/assimp/assimp/blob/master/Build.md
           > Assimp: Open Asset Import Library
           <pre><code>$ mkdir -p ~/ros_catkin_ws/external_src
           $ cd ~/ros_catkin_ws/external_src
