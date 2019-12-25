@@ -71,8 +71,8 @@
           <pre><code>$ sudo apt-get install -y libogre-1.9-dev</code></pre>
 
         * (Skip) libboost 이슈 수정 (Skip)
-          > https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269<br/>
-          > boot 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함
+          * https://stackoverflow.com/questions/53266574/installing-ros-melodic-on-ubuntu-18-10/53382269#53382269
+          > boost 최신 버전은 정수 인수만 허용하지만 ROS의 actionlib 패키지에서 부동소수점 사용하므로 수동으로 해당 소스를 찾아 수정해야 함<br/>
           > <b>실제 각 소스는 int64_t로 캐스팅되거나 int형으로 수정되어 있으므로 해당 소스 찾기는 건너뛰어도 됨</b>
 
           * 오류 소스 찾기
