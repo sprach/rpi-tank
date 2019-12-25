@@ -1,7 +1,7 @@
 # ROS Home
   > http://ros.org
   
-# Install ROS Melodic on Raspberry Pi 3
+# Install ROS Melodic on Raspberry Pi 3/4 with Raspbian
   1. Ref.
      1. [ROS](http://wiki.ros.org/melodic/Installation/Source) : http://wiki.ros.org/melodic/Installation/Source
      2. [Hackster.IO](https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1) : https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1
