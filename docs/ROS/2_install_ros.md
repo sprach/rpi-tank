@@ -12,7 +12,7 @@
           <pre><code>$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
           $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
           $ sudo apt-get update
-          $ sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake</code></pre>
+          $ sudo apt-get install -y python-empy python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake</code></pre>
 
         * rosdep를 초기화하고 업데이트
           <pre><code>$ sudo rosdep init  
@@ -80,4 +80,48 @@
                ./src/ros/roslib/test/utest.cpp</code></pre>
           
           3. 빌드 설치
-             <pre><code></code></pre>
+             1. 사전 패키지 설치
+                <pre><code>$ cd ~</code></pre>
+
+             2. catkin 패키지 빌드
+                > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
+                > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
+                > 100MB인 기본값을 2,048MB로 늘려서 빌드를 하고, 끝나면 원상복구를 해 놓아야 한다.
+                > 컴파일 과정은 <b>약 1시간</b>이 소요된다.
+                <pre><code>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
+                
+                CMake Error at CMakeLists.txt:19 (find_package):
+                  By not providing "Findconsole_bridge.cmake" in CMAKE_MODULE_PATH this
+                  project has asked CMake to find a package configuration file provided by
+                  "console_bridge", but CMake did not find one.
+
+                  Could not find a package configuration file provided by "console_bridge"
+                  with any of the following names:
+
+                    console_bridgeConfig.cmake
+                    console_bridge-config.cmake
+
+                  Add the installation prefix of "console_bridge" to CMAKE_PREFIX_PATH or set
+                  "console_bridge_DIR" to a directory containing one of the above files.  If
+                  "console_bridge" provides a separate development package or SDK, be sure it
+                  has been installed.
+
+
+                -- Configuring incomplete, errors occurred!
+                See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeOutput.log".
+                See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeError.log".
+                <== Failed to process package 'class_loader':
+                  Command '['/opt/ros/melodic/env.sh', 'cmake', '/home/pi/src/class_loader', '-DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader', '-DCMAKE_INSTALL_PREFIX=/opt/ros/melodic', '-DCMAKE_BUILD_TYPE=Release', '-G', 'Unix Makefiles']' returned non-zero exit status 1
+
+                Reproduce this error by running:
+                ==> cd /home/pi/build_isolated/class_loader && /opt/ros/melodic/env.sh cmake /home/pi/src/class_loader -DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader -DCMAKE_INSTALL_PREFIX=/opt/ros/melodic -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles'
+
+                Command failed, exiting.
+                </code></pre>
+
+             3. 설치 소싱
+                <pre><code>$ cd ~
+                $ cp .bashrc .bashrc.bak
+                $ echo "source /opt/ros/melodic/setup.bash" &gt;&gt; ~/.bashrc</code></pre>
+
+             4. roscore 실행으로 체크
