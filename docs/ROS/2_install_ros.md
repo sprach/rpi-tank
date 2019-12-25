@@ -27,7 +27,7 @@
           <pre><code>$ sudo apt-get update</code></pre>
 
         * Raspberry Pi 패키지 설치
-          <pre><code>$ sudo apt-get install -y build-essential cmake dirmngr</code></pre>
+          <pre><code>$ sudo apt-get install -y build-essential cmake dirmngr zlib1g-dev minizip</code></pre>
 
         * 파이썬 &amp; ROS 개발 패키지 설치
           <pre><code>$ sudo apt-get install -y python-empy python-rosdep python-rosinstall-generator python-wstool python-rosinstall
@@ -55,6 +55,7 @@
 
      2. 이슈 수정
         * collada_urdf 종속 문제를 해결하기 위해 호환 가능 버전인 Assimp 설치
+          * [Manual Build Assimp](https://github.com/assimp/assimp/blob/master/Build.md) : https://github.com/assimp/assimp/blob/master/Build.md
           > Assimp: Open Asset Import Library
           <pre><code>$ mkdir -p ~/ros_catkin_ws/external_src
           $ cd ~/ros_catkin_ws/external_src
