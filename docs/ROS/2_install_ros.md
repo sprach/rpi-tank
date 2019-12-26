@@ -134,9 +134,7 @@
           [  0%] Built target interactive_marker_test_autogen
           [  1%] Automatic MOC for target connect_test
           [  1%] Built target rviz_autogen
-
           ...
-          
           [ 57%] Automatic MOC for target two_render_widgets
           [ 57%] Built target two_render_widgets_autogen
           [ 57%] Compiling generated code for rviz_sip Python bindings...
