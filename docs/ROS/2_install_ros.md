@@ -8,8 +8,8 @@
      3. [Kyubot Blog](https://kyubot.tistory.com/130) : https://kyubot.tistory.com/130
      4. [Install ROS Melodic on Raspberry Pi 3 with Ubuntu Mate](https://roboticsbackend.com/install-ros-on-raspberry-pi-3/) : https://roboticsbackend.com/install-ros-on-raspberry-pi-3/
   
-  2. Install ROS Melodic
-     1. Install Dependencies and Download the Packages
+  2. ROS Melodic 설치
+     1. 종속성 설치와 패키지 다운로드
         * 레포지토리를 설정하고 필요한 종속성 설치 (candi #1)
           <pre><code>$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
           $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -103,6 +103,8 @@
                <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
 
   3. ROS 빌드
+     * CPU 발열 대비를 하지 않을 경우 빌드중 라즈베리파이가 다운될 수도 있음
+
      1. Swap 공간 확보
         > Desktop 버전 설치시 컴파일이 멈추는 경우가 종종 발생한다.<br/>
         > 이 때에는 사용 가능한 Swap 공간 영역을 늘여야 한다.<br/>
