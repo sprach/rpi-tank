@@ -134,25 +134,9 @@
           [  0%] Built target interactive_marker_test_autogen
           [  1%] Automatic MOC for target connect_test
           [  1%] Built target rviz_autogen
-          [  1%] Built target connect_test_autogen
-          [  2%] Built target interactive_marker_test
-          [  4%] Built target connect_test
-          [ 50%] Built target rviz
-          [ 52%] Automatic MOC for target executable
-          [ 52%] Automatic MOC for target rviz_default_plugin
-          [ 52%] Built target executable_autogen
-          [ 53%] Automatic MOC for target rviz_image_view
-          [ 53%] Built target rviz_image_view_autogen
-          [ 53%] Automatic MOC for target render_panel_test
-          [ 53%] Built target render_panel_test_autogen
-          [ 53%] Automatic MOC for target new_display_dialog_test
-          [ 53%] Built target new_display_dialog_test_autogen
-          [ 54%] Automatic MOC for target render_points_test
-          [ 54%] Built target render_points_test_autogen
-          [ 54%] Automatic MOC for target color_editor_test
-          [ 54%] Built target color_editor_test_autogen
-          [ 56%] Automatic MOC for target line_edit_with_button_test
-          [ 56%] Built target line_edit_with_button_test_autogen
+
+          ...
+          
           [ 57%] Automatic MOC for target two_render_widgets
           [ 57%] Built target two_render_widgets_autogen
           [ 57%] Compiling generated code for rviz_sip Python bindings...
