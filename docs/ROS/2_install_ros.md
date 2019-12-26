@@ -122,33 +122,55 @@
 
         * Error
           <pre><code>
-          CMake Error at CMakeLists.txt:19 (find_package):
-            By not providing "Findconsole_bridge.cmake" in CMAKE_MODULE_PATH this
-            project has asked CMake to find a package configuration file provided by
-            "console_bridge", but CMake did not find one.
-
-            Could not find a package configuration file provided by "console_bridge"
-            with any of the following names:
-
-              console_bridgeConfig.cmake
-              console_bridge-config.cmake
-
-            Add the installation prefix of "console_bridge" to CMAKE_PREFIX_PATH or set
-            "console_bridge_DIR" to a directory containing one of the above files.  If
-            "console_bridge" provides a separate development package or SDK, be sure it
-            has been installed.
-
-
-          -- Configuring incomplete, errors occurred!
-          See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeOutput.log".
-          See also "/home/pi/build_isolated/class_loader/CMakeFiles/CMakeError.log".
-          <== Failed to process package 'class_loader':
-            Command '['/opt/ros/melodic/env.sh', 'cmake', '/home/pi/src/class_loader', '-DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader', '-DCMAKE_INSTALL_PREFIX=/opt/ros/melodic', '-DCMAKE_BUILD_TYPE=Release', '-G', 'Unix Makefiles']' returned non-zero exit status 1
+          ==> Processing catkin package: 'rviz'
+          ==> Building with env: '/opt/ros/melodic/env.sh'
+          Makefile exists, skipping explicit cmake invocation...
+          ==> make cmake_check_build_system in '/home/pi/ros_catkin_ws/build_isolated/rviz'
+          ==> make -j2 in '/home/pi/ros_catkin_ws/build_isolated/rviz'
+          [  0%] Automatic MOC for target interactive_marker_test
+          [  0%] Automatic MOC for target rviz
+          [  0%] Built target interactive_marker_test_autogen
+          [  1%] Automatic MOC for target connect_test
+          [  1%] Built target rviz_autogen
+          [  1%] Built target connect_test_autogen
+          [  2%] Built target interactive_marker_test
+          [  4%] Built target connect_test
+          [ 50%] Built target rviz
+          [ 52%] Automatic MOC for target executable
+          [ 52%] Automatic MOC for target rviz_default_plugin
+          [ 52%] Built target executable_autogen
+          [ 53%] Automatic MOC for target rviz_image_view
+          [ 53%] Built target rviz_image_view_autogen
+          [ 53%] Automatic MOC for target render_panel_test
+          [ 53%] Built target render_panel_test_autogen
+          [ 53%] Automatic MOC for target new_display_dialog_test
+          [ 53%] Built target new_display_dialog_test_autogen
+          [ 54%] Automatic MOC for target render_points_test
+          [ 54%] Built target render_points_test_autogen
+          [ 54%] Automatic MOC for target color_editor_test
+          [ 54%] Built target color_editor_test_autogen
+          [ 56%] Automatic MOC for target line_edit_with_button_test
+          [ 56%] Built target line_edit_with_button_test_autogen
+          [ 57%] Automatic MOC for target two_render_widgets
+          [ 57%] Built target two_render_widgets_autogen
+          [ 57%] Compiling generated code for rviz_sip Python bindings...
+          make[3]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+          make[3]: *** No targets.  Stop.
+          make[2]: *** [src/python_bindings/sip/CMakeFiles/librviz_sip.dir/build.make:61: /home/pi/ros_catkin_ws/devel_isolated/rviz/lib/python2.7/dist-packages/rviz/librviz_sip.so] Error 2
+          make[1]: *** [CMakeFiles/Makefile2:5125: src/python_bindings/sip/CMakeFiles/librviz_sip.dir/all] Error 2
+          make[1]: *** Waiting for unfinished jobs....
+          [ 57%] Built target rviz_default_plugin_autogen
+          make: *** [Makefile:141: all] Error 2
+          <== Failed to process package 'rviz':
+            Command '['/opt/ros/melodic/env.sh', 'make', '-j2']' returned non-zero exit status 2
 
           Reproduce this error by running:
-          ==> cd /home/pi/build_isolated/class_loader && /opt/ros/melodic/env.sh cmake /home/pi/src/class_loader -DCATKIN_DEVEL_PREFIX=/home/pi/devel_isolated/class_loader -DCMAKE_INSTALL_PREFIX=/opt/ros/melodic -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles'
+          ==> cd /home/pi/ros_catkin_ws/build_isolated/rviz && /opt/ros/melodic/env.sh make -j2
 
           Command failed, exiting.</code></pre>
+
+        * 옵션 <i>-j2</i>를 <i>-j1</i>로 변경하여 빌드
+        <pre><code>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j1</code></pre>
 
      3. Swap 공간 복구
         <pre><code>$ sudo vi /etc/dphys-swapfile
