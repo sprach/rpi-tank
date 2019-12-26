@@ -119,8 +119,8 @@
 
      2. catkin 패키지 빌드
         * 컴파일 과정은 <b>약 3시간</b>(Raspberry Pi 3 기준) 이상 소요
-        <pre><code>$ cd ~/ros_catkin_ws
-        $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</code></pre>
+          <pre><code>$ cd ~/ros_catkin_ws
+          $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2</code></pre>
 
         * Error
           <pre><code>
@@ -153,8 +153,8 @@
 
           Command failed, exiting.</code></pre>
 
-        * 옵션 <i>-j2</i>를 <i>-j1</i>로 변경하여 빌드
-        <pre><code>$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j1</code></pre>
+        * 오류 발생시 권장한 명령으로 빌드
+          <pre><code>$ cd /home/pi/ros_catkin_ws/build_isolated/rviz && /opt/ros/melodic/env.sh make -j2</code></pre>
 
      3. Swap 공간 복구
         <pre><code>$ sudo vi /etc/dphys-swapfile
