@@ -4,6 +4,7 @@
 # Install ROS Melodic on Raspberry Pi 3/4 with Raspbian
   1. Ref.
      1. [ROS](http://wiki.ros.org/melodic/Installation/Source) : http://wiki.ros.org/melodic/Installation/Source
+     2. [Installing ROS Kinetic on the Raspberry Pi](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi) : http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
      2. [Hackster.IO](https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1) : https://www.hackster.io/dmitrywat/ros-melodic-on-raspberry-pi-4-debian-buster-rplidar-a1m8-0d63d1
      3. [Kyubot Blog](https://kyubot.tistory.com/130) : https://kyubot.tistory.com/130
      4. [Install ROS Melodic on Raspberry Pi 3 with Ubuntu Mate](https://roboticsbackend.com/install-ros-on-raspberry-pi-3/) : https://roboticsbackend.com/install-ros-on-raspberry-pi-3/
@@ -51,7 +52,7 @@
           <pre><code>$ wstool update -j4 -t src</code></pre>
 
         * Dependency packages 설치 확인
-          <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y</code></pre>
+          <pre><code>$ rosdep install --from-paths src --ignore-src --rosdistro melodic -y -r --os=debian:buster</code></pre>
 
      2. 이슈 수정
         * collada_urdf 종속 문제를 해결하기 위해 호환 가능 버전인 Assimp 설치
