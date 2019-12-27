@@ -8,10 +8,10 @@
         * 최신 버전 선택
      6. Download Links > ubuntu-mate-18.04.2-beta1-desktop-arm64+raspi3-ext4.img.xz
   2. Flashing
-  3. Pre-coping files
+  3. (X) Pre-coping files
      - ssh
      - wpa_supplicant.conf
-     
+
 # MicroSD 사전 설정
   > HDMI와 같이 디스플레이를 연결할 수 없을 때의 작업
   1. ssh 사용을 위한 빈 'ssh' 파일 복사 또는 만들어 넣기
