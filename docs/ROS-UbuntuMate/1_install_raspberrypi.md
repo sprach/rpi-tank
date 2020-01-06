@@ -48,6 +48,7 @@
 [sudo] password for pi: &lt;<i>password</i>&gt;
 $ sudo apt-get -y upgrade
 [sudo] password for pi: &lt;<i>password</i>&gt;</code></pre>
+> 업그레이드중 오류는 무시
 
 # WiFi 설정
   1. GUI인 경우
