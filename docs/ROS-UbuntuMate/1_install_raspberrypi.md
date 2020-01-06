@@ -44,10 +44,10 @@
      &lt;<i>Yes</i>&gt;</code></pre>
 
 # Update &amp; Upgrade
-   <pre><code>$ sudo apt-get update
-   [sudo] password for pi: &lt;<i>password</i>&gt;
-   $ sudo apt-get -y upgrade
-   [sudo] password for pi: &lt;<i>password</i>&gt;</code></pre>
+ <pre><code>$ sudo apt-get update
+ [sudo] password for pi: &lt;<i>password</i>&gt;
+ $ sudo apt-get -y upgrade
+ [sudo] password for pi: &lt;<i>password</i>&gt;</code></pre>
 
 # WiFi 설정
   1. GUI인 경우
