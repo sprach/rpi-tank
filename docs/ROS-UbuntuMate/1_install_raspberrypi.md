@@ -45,7 +45,7 @@
 
 # Update &amp; Upgrade
   <pre><code>$ sudo apt-get update
-  [sudo] password for pi: <i>&lt;password&gt;</code></pre>
+  [sudo] password for pi: <i>&lt;password&gt;
   $ sudo apt-get -y upgrade
     [sudo] password for pi: <i>&lt;password&gt;</code></pre>
 
