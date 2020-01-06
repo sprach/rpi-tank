@@ -39,7 +39,7 @@
      <pre><code>5 Advanced Options
      A1 Expand Filesystem</code></pre>
   4. 종료 및 재부팅
-     <pre><code>&lt;<i>Finish<&/i>&gt;
+     <pre><code>&lt;<i>Finish</i>&gt;
      Would you like to reboot now?
      &lt;<i>Yes</i>&gt;</code></pre>
 
