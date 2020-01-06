@@ -26,7 +26,7 @@
 # Ubunte MATE 설치후 환경 설정
   1. Raspberry Pi config
      <pre><code>$ sudo raspi-config
-     [sudo] password for pi: <i>&lt;password&gt;</code></pre>
+     [sudo] password for pi: <i>&lt;password&gt;</i></code></pre>
   2. 인터페이스 옵션 설정에서 지정된 옵션 모두 Enable 처리
      * 메뉴 이동은 커서 키 또는 &lt;Tab&gt; 키 사용함
      <pre><code>3 Interfacing Options
