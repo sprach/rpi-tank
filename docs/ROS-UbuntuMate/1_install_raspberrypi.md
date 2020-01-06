@@ -45,10 +45,33 @@
 
 # SSH 설치
   1. ssh 설치
-     <pre><code>$ sudo apt-get install ssh
+     <pre><code>$ sudo apt-get install openssh
      [sudo] password for pi: <i>&lt;password&gt;</i></code></pre>
-  2. 서비스 등록
+  2. 기본 설정
+     <pre><code>$ sudo vi /etc/ssh/sshd_config
+     ...
+     Port 22
+     MaxAuthTries 3
+     AllowUsers pi
+     &lt;ESC&gt;:wq</code></pre>
+  3. 서비스 등록
      <pre><code>$ sudo systemctl enable ssh</code></pre>
+  4. 서비스 시작
+     <pre><code>$ sudo systemctl start ssh</code></pre>
+  5. 서비스 확인sudo
+     <pre><code>$ sudo systemctl status ssh</code></pre>
+
+# 방화벽 설치
+  1. 방화벽 설치
+     <pre><code>$ sudo apt-get install -y firewall-config
+     [sudo] password for pi: <i>&lt;password&gt;</i></code></pre>
+  2. 방화벽 열기
+     <pre><code>$ sudo firewall-cmd --add-service=ssh --permanent
+     $ sudo firewall-cmd --reload</code></pre>
+  3. TCP 번호로 지정할 경우
+     <pre><code>$ sudo firewall-cmd --add-port=8888 --permanent</code></pre>
+  4. GUI
+     <pre><code>$ sudo firewall-config</code></pre>
 
 # Update &amp; Upgrade
 <pre><code>$ sudo apt-get update
