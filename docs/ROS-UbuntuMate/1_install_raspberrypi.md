@@ -1,4 +1,4 @@
-# Ubuntu Mate
+# Ubuntu MATE
   1. Download Steps
      1. [Raspberry Pi Download page](https://www.raspberrypi.org/downloads/) : https://www.raspberrypi.org/downloads/
      2. Third Party Operating System Images > Ubuntu MATE
@@ -8,67 +8,62 @@
         * 최신 버전 선택
      6. Download Links > ubuntu-mate-18.04.2-beta1-desktop-arm64+raspi3-ext4.img.xz
   2. Flashing
-  3. (X) Pre-coping files
-     - ssh
-     - wpa_supplicant.conf
 
-# MicroSD 사전 설정
-  > HDMI와 같이 디스플레이를 연결할 수 없을 때의 작업
-  1. ssh 사용을 위한 빈 'ssh' 파일 복사 또는 만들어 넣기
-  2. WiFi 접속을 위한 'wpa_supplicant.conf' 파일 복사해 넣기
-     <pre><code>country=GB
-     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-     update_config=1
+# Ubunte MATE 첫 설치
+  1. MicroSD를 라즈페비파이 슬롯에 삽입
+     * Ubuntu MATE는 첫 부팅 과정을 거치면서 환경 설정이 이루어지므로 Raspbian 같이 선(先) 작업을 진행할 수 없음
+  2. 키보드, 마우스, 모니터를 반드시 연결시키고 전원 연결함
+     * UART, WiFi 작업은 O/S 설치후 가능함
+  3. 설치
+      1. 사용할 언어: English
+      2. 키보드: Korean - 103/104 Keyboards
+      3. 시간대: Seoul
+      4. 사용자 및 암호: pi / raspberry
+         * 개발시 편의를 위한 정의이며 실 배포시에는 다르게 진행해야 함
+      5. 설치 진행
+  4. 자동 재부팅
 
-     network={
-       ssid="&lt;ssid-name&gt;"
-       psk="&lt;password&gt;"
-     }</code></pre>
-  3. USB Serial 접속을 위한 Serial 활성화 Key 삽입
-     <pre><code>...
-     enable_uart=1</code></pre>
+# Ubunte MATE 설치후 환경 설정
+  1. Raspberry Pi config
+     <pre><code>$ sudo raspi-config
+     [sudo] password for pi: <i>&lt;password&gt;</code></pre>
+  2. 인터페이스 옵션 설정에서 지정된 옵션 모두 Enable 처리
+     * 메뉴 이동은 커서 키 또는 &lt;Tab&gt; 키 사용함
+     <pre><code>3 Interfacing Options
+     P1 Camera - Enabled &gt; <i>Yes</i>
+     P2 SSH - Enabled &gt; <i>Yes</i>
+     P3 SPI - Enabled &gt; <i>Yes</i>
+     P4 I2C - Enabled &gt; <i>Yes</i>
+     p5 Serial - Enabled &gt; <i>Yes</i><code></pre>
+  3. 파일시스템 확장
+     <pre><code>5 Advanced Options
+     A1 Expand Filesystem</code></pre>
+  4. 종료 및 재부팅
+     <pre><code>&lt;<i>Finish<&/i>&gt;
+     Would you like to reboot now?
+     &lt;<i>Yes</i>&gt;</code></pre>
 
-# Raspberry Pi Config
-  * 'ssh'와 'wpa_supplicant.conf' 파일 복사를 해 넣지 않은 경우
-     1. Raspberry Pi config
-        <pre><code>$ sudo raspi-config</code></pre>
-     2. WiFi
-        <pre><code>2 Network Options
-        N2 Wi-fi
-        Please enter SSID <i>&lt;ssid-name&gt;</i>
-        Please enter passphrase. Leave it empty if none. <i>&lt;password&gt;</i></code></pre>
-     3. Enable ssh
-        <pre><code>5 Interfacing Options
-        P2 SSH
-        Would you like the SSH server to be enabled? <i>&lt;Yes&gt;</i>
-        The SSH server is enabled <i>&lt;Ok&gt;</i></code></pre>
-     4. Finish the Raspberry Pi config
-        <pre><code>&lt;Finish&gt;</code></pre>
+# Update &amp; Upgrade
+  <pre><code>$ sudo apt-get update
+  [sudo] password for pi: <i>&lt;password&gt;</code></pre>
+  $ sudo apt-get -y upgrade
+    [sudo] password for pi: <i>&lt;password&gt;</code></pre>
 
-  * 파일 시스템 확장
-    <pre><code>$ sudo raspi-config
-    7 Advanced Options
-    A1 Expand Filesystem
-    Root partition has been resized.
-    The filesystem will be enlarged upon the next reboot <i>&lt;Ok&gt;</i>
-    <i>&lt;Finish&gt;</i>
-    Would you like to reboot now? <i>&lt;Yes&gt;</i>
-    * 재부팅 진행</code></pre>
-
-  * 재부팅후 용량 확인
-    <pre><code>$ df -k
-    Filesystem     1K-blocks    Used Available Use% Mounted on
-    /dev/root       30351740 6631700  22405272  23% /
-    devtmpfs          469544       0    469544   0% /dev
-    tmpfs             474152       0    474152   0% /dev/shm
-    tmpfs             474152   12304    461848   3% /run
-    tmpfs               5120       4      5116   1% /run/lock
-    tmpfs             474152       0    474152   0% /sys/fs/cgroup
-    /dev/mmcblk0p1    258095   55083    203013  22% /boot
-    tmpfs              94828       0     94828   0% /run/user/1000</code></pre>
+# WiFi 설정
+  1. GUI인 경우
+     1. 우상단의 '↑↓' 아이콘 선택
+     2. 연결할 AP 선택 및 SSID, PWD 입력 연결
+        * 원하는 AP가 표시되지 않으면 'Enable Wi-Fi'를 선택하여 Uncheck한 뒤에 다시 Check함
+  2. CUI인 경우
+     <pre><code>$ sudo nmcli d wifi connect &lt;<i>SSID</i>&gt; password &lt;<i>Password</i>&gt;</code></pre>
+  * WiFi 리스트 보기
+    <pre><code>$ nmcli d wifi list</code></pre>
+    > 빠져 나오기는 'q' 키를 누르면 됨
 
 # Raspberry Pi의 IP 주소
-  <pre><code> $ ifconfig</code></pre>
+  <pre><code> $ ifconfig
+  [sudo] password for pi: <i>&lt;password&gt;</code></pre>
+
   <pre><code>eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         ether b8:27:eb:0a:0d:86  txqueuelen 1000  (Ethernet)
         RX packets 0  bytes 0 (0.0 B)
@@ -94,12 +89,22 @@
         TX packets 37  bytes 5409 (5.2 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
 
-
 # Raspbian Update and Upgrade
   * Upgrade시 소요시간이 제법 길기 때문에 교육시에는 실행하지 말 것
     <pre><code>$ sudo apt-get update
     $ sudo apt-get upgrade
     $ sudo rpi-update -y</code></pre>
+
+# GUI에서 터미널 사용
+  1. 'Menu' &gt; 'System Tools' &gt; 'MATE Terminal'
+
+# CUI/GUI 부팅 전환
+  1. GUI → CUI
+     <pre><code>$ sudo graphical disable
+     $ sudo shutdown -r now</code></pre>
+  2. CUI → GUI
+     <pre><code>$ sudo graphical ebable
+     $ sudo shutdown -r now</code></pre>
 
 # 라즈베리파이 한글 폰트 설치
   1. 라즈베리파이에서 한글 보기용 폰트 설치
