@@ -61,8 +61,8 @@ $ sudo apt-get -y upgrade
     > 빠져 나오기는 'q' 키를 누르면 됨
 
 # Raspberry Pi의 IP 주소
-<pre><code> $ ifconfig
-[sudo] password for pi: <i>&lt;password&gt;</code></pre>
+<pre><code>$ ifconfig
+[sudo] password for pi: &lt;<i>password</i>&gt;</code></pre>
 
 <pre><code>eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
       ether b8:27:eb:0a:0d:86  txqueuelen 1000  (Ethernet)
@@ -96,7 +96,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
     $ sudo rpi-update -y</code></pre>
 
 # GUI에서 터미널 사용
-  1. 'Menu' &gt; 'System Tools' &gt; 'MATE Terminal'
+  * 'Menu' &gt; 'System Tools' &gt; 'MATE Terminal'
 
 # CUI/GUI 부팅 전환
   1. GUI → CUI
