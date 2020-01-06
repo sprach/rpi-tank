@@ -34,7 +34,7 @@
      P2 SSH - Enabled &gt; <i>Yes</i>
      P3 SPI - Enabled &gt; <i>Yes</i>
      P4 I2C - Enabled &gt; <i>Yes</i>
-     p5 Serial - Enabled &gt; <i>Yes</i><code></pre>
+     p5 Serial - Enabled &gt; <i>Yes</i></code></pre>
   3. 파일시스템 확장
      <pre><code>5 Advanced Options
      A1 Expand Filesystem</code></pre>
