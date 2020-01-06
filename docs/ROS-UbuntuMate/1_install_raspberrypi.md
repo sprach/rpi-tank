@@ -43,6 +43,13 @@
      Would you like to reboot now?
      &lt;<i>Yes</i>&gt;</code></pre>
 
+# SSH 설치
+  1. ssh 설치
+     <pre><code>$ sudo apt-get install ssh
+     [sudo] password for pi: <i>&lt;password&gt;</i></code></pre>
+  2. 서비스 등록
+     <pre><code>$ sudo systemctl enable ssh</code></pre>
+
 # Update &amp; Upgrade
 <pre><code>$ sudo apt-get update
 [sudo] password for pi: &lt;<i>password</i>&gt;
@@ -106,10 +113,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
   2. CUI → GUI
      <pre><code>$ sudo graphical ebable
      $ sudo shutdown -r now</code></pre>
-
-# 라즈베리파이 한글 폰트 설치
-  1. 라즈베리파이에서 한글 보기용 폰트 설치
-     <pre><code>$ sudo apt-get install fonts-unfonts-core fonts-nanum fonts-nanum-extra</code></pre>
 
 # 라즈베리파이 원격접속 설정
   > Windows 원격데스크톱용
