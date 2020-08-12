@@ -1,0 +1,25 @@
+https://youtu.be/iLiI_IRedhI
+
+PC는 Ubuntu
+
+Raspi는 유비쿼티 로봇공학(Ubiquity robotics)에서 미리 구운 SD 자동차 다운로드
+- https://www.ubiquityrobotics.com/
+- https://downloads.ubiquityrobotics.com/pi.html
+
+Wifi AP
+- SSID: ubiquityrobotXXXX (XXXX는 MAC 주소 일부)
+- PWD: robotseverywhere
+
+Ubiquity Robotics Raspberry Pi 이미지는 Ubuntu 16.04를 기반
+Raspberry Pi 3 (모델 B 및 B +) 및 Raspberry Pi 4B에서 작동하도록 설계
+Original Pi와 Pi Zero에서 전혀 작동하지 않음
+
+Pi3에서는 이미지가 Wifi 액세스 포인트로 나타납니다.
+SSID는 ubiquityrobotXXXX이며 XXXX는 MAC 주소의 일부입니다.
+Wi-Fi 비밀번호는 robotseverywhere입니다.
+
+연결되면 ssh ubuntu@10.42.0.1, 암호 ubuntu를 사용하여 Pi에 로그인 할 수 있습니다.
+키보드와 마우스를 연결하는 경우 프롬프트에서 암호 ubuntu를 입력하십시오 .
+
+로봇 중 하나에서 실행하지 않으면 sudo systemctl disable magni-base 를 실행하여 시작 스크립트가 비활성화되었는지 확인하십시오.
+
